@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页面</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <style>
+        body{
+            font-size: 18px;
+            font-family: "Microsoft YaHei UI";
+            margin: 0;
+            background-color: #fafafa;
+        }
+
+        header,main,footer{
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        header a{
+            text-decoration: none;
+            color: #6c6c6c;
+        }
+        
+        header a:hover{
+            color: #0aa1ed;
+        }
+
+        .el-main{
+            overflow: hidden;/*去除多余的滚动条*/
+        }
+
+        /* 销量榜表格间距 */
+        .el-table .el-table__cell{
+            padding: 0;
+        }
+
+        /* 给图片添加阴影 */
+        .item_div img:hover{
+            position: relative;
+            bottom: 5px;
+            box-shadow: 0 0 12px 5px #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <el-container>
+            <!-- 头部和导航栏 -->
+            <el-header>
+                <div style="width: 1200px;margin: 0 auto;">
+                    <img src="imgs/logo.png"
+                        style="width: 300px;vertical-align: middle;"
+                    alt="">
+                    <span style="margin-left: 50px;">
+                        <a style="color: #0aa1ed;" href="/">首页</a>
+                        <el-divider direction="vertical"></el-divider>
+                        <a href="/">热点咨询</a>
+                        <el-divider direction="vertical"></el-divider>
+                        <a href="/">社会招聘</a>
+                        <el-divider direction="vertical"></el-divider>
+                        <a href="/">校园招聘</a>
+                        <el-divider direction="vertical"></el-divider>
+                        <a href="/">帮助中心</a>
+                    </span>
+                </div>
+                <!-- 蓝条开始 -->
+                <div style="width: 100%;height: 60px;background-color: #82c8ec;">
+                    <el-menu
+                        style="width: 1200px;margin: 0 auto;"
+                        mode="horizontal"
+                        background-color="#82c8ec"
+                        text-color="#fff"
+                        active-text-color="yellow"
+                    >
+                        <el-menu-item v-for="c in categoryArr">{{c.name}}</el-menu-item>
+                        <el-menu-item style="float:right">
+                            <el-input
+                                size="mini"
+                                v-model="wd"
+                                placeholder="请输入关键字"
+                            ></el-input>
+                        </el-menu-item>
+                        <el-button
+                            style="float:right;
+                            background-color: rgba(0,0,0,0);
+                            border: none;
+                            position: relative;
+                            top: 15px;
+                            left: 210px;
+                            "
+                            icon="el-icon-search"
+                        ></el-button>
+                    </el-menu>
+                </div>
+            </el-header>
+            <!-- 轮播图,排行榜,商品列表 -->
+            <el-main style="width: 1200px;margin: 100px auto 0;">
+                <el-row :gutter="20">
+                    <!-- 走马灯部分 -->
+                    <el-col :span="18">
+                        <el-carousel height="300px">
+                            <el-carousel-item v-for="item in bannerArr" :key="item">
+                              <img width="100%" height="100%" :src="item.url" alt="">
+                            </el-carousel-item>
+                          </el-carousel>
+                    </el-col>
+                    <!-- 销量排行榜 -->
+                    <el-col :span="6">
+                        <el-card>
+                            <h3><i style="font-weight: bold;" class="el-icon-trophy"></i>销量最高</h3>
+                            <el-divider></el-divider>
+                            <el-table :data="topArr" style="width: 500px;">
+                                <el-table-column type="index" width="50px" label="排名"></el-table-column>
+                                <el-table-column prop="title" label="商品名"></el-table-column>
+                                <el-table-column prop="saleCount" label="销量"></el-table-column>
+                            </el-table>
+                        </el-card>
+                    </el-col>
+                </el-row>
+                <!-- 商品列表开始 -->
+                <el-row :gutter="20">
+                    <el-col v-for="item in productArr" :span="6" style="margin: 10px 0;">
+                        <el-card :body-style="{padding:'0px'}">
+                            <div class="item_div" style="padding: 20px 20px 0 20px;">
+                                <img :src="item.url" width="100%" height="240" class="image" alt="">
+                            </div>
+                            <div style="padding: 14px;">
+                                <p style="margin-top: 0;font-size: 15px;height: 38px;">
+                                    {{item.title}}
+                                </p>
+                                <div class="bottom clearfix" style="color: #6c6c6c;">
+                                    <span>￥{{item.price}}
+                                        <small style="text-decoration: line-through;">￥{{item.oldPrice}}</small>
+                                    </span>
+                                    <span style="float: right;">销量:{{item.saleCount}}件</span>
+                                </div>
+                            </div>
+                        </el-card>
+                    </el-col>
+                </el-row>
+            </el-main>
+            <!-- 版权信息 -->
+            <el-footer>
+                <div style="background-image: url(imgs/wave.png);height: 95px;margin-bottom: -30px;"></div>
+                <div style="background-color: #3f3f3f;padding: 30px;text-align: center;
+                    color: #b1b1b1;;font-size: 14px;height: 100px;">
+                    <p>重庆邮电大学WEB班有限公司小帅哥美女们版权所有</p>
+                    <p>我们班都是卧龙凤雏</p>
+                </div>
+            </el-footer>
+        </el-container>
+    </div>
+    <script>
+        let v = new Vue({
+            el:'#app',
+            data:{
+                wd:'',
+                categoryArr:[],
+                bannerArr:[],
+                topArr: [
+                    { title: "小米12pro", saleCount: 876543 },
+                    { title: "华为手表", saleCount: 76543 },
+                    { title: "最生活毛巾", saleCount: 6543 },
+                    { title: "双飞燕鼠标", saleCount: 543 },
+                    { title: "耐克运动服", saleCount: 43 },
+                    { title: "苹果手机", saleCount: 3 },
+                ],
+                productArr:[]
+            },
+            created:function(){
+                //获取数据
+                axios.get('/banner/list').then(res => {//获取轮播图
+                    v.bannerArr = res.data
+                })
+                axios.get('/category/list').then(res=>{//获取分类信息
+                    v.categoryArr = res.data
+                })
+            },
+            methods:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

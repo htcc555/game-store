@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大威天龙</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        body{
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1 style="color: #fff;">当前播放的是:{{urls[i].name}}</h1>
+        <button @click="i--">上一首</button>
+        <button @click="i++">下一首</button>
+        <h2 style="color: #fff;">当前功德为:{{score}}</h2>
+        <img @mousedown="f1()" @mouseup="w=390" src="./imgs/木鱼.png" :width="w" alt="">
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                score:0,//功德分数
+                i:0,//播放音频的脚标
+                w:390,//宽度
+                urls:[
+                    {id:1,url:"../JS/mp3/木鱼1.mp3",name:"清脆"},
+                    {id:2,url:"../JS/mp3/木鱼2.mp3",name:"响亮"},
+                    {id:3,url:"../JS/mp3/木鱼3.mp3",name:"清爽"}
+                ]
+            },
+            methods:{
+                f1(){
+                    this.w = 400
+                    let m = new Audio(this.urls[this.i].url);m.play()
+                    this.score+=9999
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体相关</title>
+    <style>
+        p{
+            /* 字体颜色 */
+            color: aquamarine;
+            /* 字体大小 */
+            font-size: 50px ;
+            /* 加粗/取消加粗 */
+            font-weight: bolder;
+            /* 行高 */
+            line-height: 50px;
+            /* 字体 */
+            font-family:fantasy;
+            /* 线条overline/underline/line-through */
+            /* font: 30px '隶书'; font-size和font-family混合写法 */
+            /* 颜色 x偏移量 y偏移量 浓度(值越大越模糊) */
+            text-shadow:#444 10px 10px 10px;  
+            text-align: center;          
+        }
+        h1{
+            color: rgb(175, 20, 108);
+            font-weight: normal;
+            text-decoration:line-through #564;
+            text-align: center;
+        }
+        .c1{
+            /* 可以让独占一行的字体标签居中,也可以让盒子内元素居中 */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>静夜思</h1>
+<div class="c1">
+    <span>李白</span>
+</div>
+    <p>床前明月光</p>
+    <p>疑是地上霜</p>
+    <p>举头望明月</p>
+    <p>低头思故乡</p>
+</body>
+</html>

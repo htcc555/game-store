@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>道具商城</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css" />
+    <script src="./js/eui.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <style>
+      #body {
+        font-family: arial, 微软雅黑, sans-serif;
+        background-color: #f3f4f6;
+      }
+
+      .el-menu-vertical-demo:not(.el-menu--collapse) {
+        width: 200px;
+        min-height: 400px;
+      }
+
+      .el-carousel__item h3 {
+        color: #475669;
+        font-size: 18px;
+        opacity: 0.75;
+        line-height: 475px;
+        margin: 0;
+      }
+
+      .el-carousel__item:nth-child(2n) {
+        background-color: #99a9bf;
+      }
+
+      .el-carousel__item:nth-child(2n + 1) {
+        background-color: #d3dce6;
+      }
+
+      .el-button {
+        height: 34px;
+        margin-bottom: 9px;
+        border-radius: 20px;
+        margin-left: -7px;
+      }
+
+      #total > #app .flashSale {
+        border-radius: 4px;
+        min-height: 430px;
+        background-color: violet;
+        background-image: url(./img/flashsale.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+
+      #total > #app .newob {
+        height: 320px;
+        background-image: url(./img/newsale.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 214px;
+        margin-left: 15px;
+        margin-top: 15px;
+        float: left;
+      }
+
+      #total > #app .newob:hover {
+        background-image: url(./img/newsale\(hover\).png);
+      }
+
+      #total > #app .hotsale {
+        background-color: rgb(194, 46, 187);
+        height: 70px;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      #total > #app .btn1 {
+        margin: 0 auto 0;
+        width: 164px;
+        height: 35px;
+        line-height: 36px;
+        text-align: center;
+        display: block;
+        font-size: 16px;
+        color: #fff;
+        background-color: #ff5900;
+        border-bottom: 3px solid #e04e00;
+      }
+
+      #total > #app .btn1:active {
+        background-color: rgb(242, 88, 6);
+      }
+
+      #total > #app .btn2 {
+        width: 114px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        background: #36ab87;
+        color: #fff;
+        display: block;
+        margin: 2px auto 0;
+      }
+
+      #total > #app .btn2:active {
+        background-color: rgb(46, 157, 123);
+      }
+
+      #total > #app #fixed1 {
+        position: fixed;
+        background-color: rgb(250, 251, 252);
+        width: 80px;
+        height: 70px;
+        bottom: 20%;
+        right: 6%;
+      }
+      #total > #app #fixed2 {
+        position: fixed;
+        background-color: rgb(250, 251, 252);
+        width: 80px;
+        height: 50px;
+        bottom: 13%;
+        right: 6%;
+      }
+
+      #total > #app #search_btn {
+        margin-left: -5px;
+        height: 38px;
+        width: 80px;
+        color: white;
+        background-color: rgb(102, 177, 255);
+        border-radius: 0 3px 3px 0;
+        border: none;
+      }
+
+      #total > #app #search_btn:active {
+        background-color: rgb(83, 168, 255);
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0">
+    <div
+      id="total"
+      style="
+        background-image: url(./img/背景.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 1520px;
+        height: auto;
+        margin: auto;
+      "
+    >
+      <div id="app" style="width: 980px; height: auto; margin: auto">
+        <div id="fixed1">
+          <div
+            style="
+              width: 100%;
+              height: 40px;
+              font-size: 30px;
+              text-align: center;
+            "
+          >
+            <i class="el-icon-arrow-up"></i>
+          </div>
+          <div
+            style="
+              width: 100%;
+              height: 30px;
+              font-size: 12px;
+              text-align: center;
+            "
+          >
+            返回顶部
+          </div>
+        </div>
+        <div id="fixed2">
+          <div
+            style="
+              width: 100%;
+              height: 100%;
+              font-size: 35px;
+              text-align: center;
+            "
+          >
+            <i class="el-icon-shopping-cart-full"></i>
+          </div>
+        </div>
+        <el-container>
+          <!-- 头头 -->
+          <el-header
+            height="25px"
+            style="
+              background-color: rgb(14, 14, 14);
+              margin-top: 0px;
+              width: 940px;
+              margin-left: 20px;
+            "
+          >
+            <el-breadcrumb separator="|" style="margin-top: 10px">
+              <el-breadcrumb-item
+                ><a href="" style="color: aliceblue"
+                  >首页</a
+                ></el-breadcrumb-item
+              >
+              <el-breadcrumb-item
+                ><a href="" style="color: aliceblue"
+                  >个人中心</a
+                ></el-breadcrumb-item
+              >
+              <el-breadcrumb-item
+                ><a href="./admin.html" style="color: aliceblue"
+                  >管理员入口</a
+                ></el-breadcrumb-item
+              >
+            </el-breadcrumb>
+          </el-header>
+          <el-main>
+            <div
+              style="
+                height: 80px;
+                /* background-color: aquamarine; */
+                position: relative;
+              "
+            >
+              <!-- 头部搜索栏 -->
+              <el-row>
+                <el-col :span="6">
+                  <img
+                    src="./img/logo.png"
+                    alt=""
+                    style="width: 150px; margin-top: 14px; margin-left: 19px"
+                  />
+                </el-col>
+                <el-col :span="12">
+                  <el-input
+                    placeholder="请输入搜索商品"
+                    prefix-icon="el-icon-search"
+                    v-model="input1"
+                    style="margin-top: 28px; width: 351px"
+                  >
+                  </el-input>
+                  <button id="search_btn" @click="UserSelect">点击搜索</button>
+                </el-col>
+                <el-col :span="6">
+                  <img
+                    src="./img/搜索栏图标.png"
+                    alt=""
+                    style="height: 75px; margin-left: 30px; margin-bottom: 50px"
+                  />
+                  <img
+                    src="./img/屏幕截图 2023-08-19 100856.png"
+                    alt=""
+                    style="height: 50px; margin: 0 0 50px 15px"
+                  />
+                </el-col>
+              </el-row>
+            </div>
+
+            <!-- 导航栏 -->
+            <div
+              style="
+                margin-top: 30px;
+                background-color: #545c64;
+                color: aliceblue;
+                height: 65px;
+                width: 940px;
+              "
+            >
+              <el-row>
+                <el-col :span="6">
+                  <div
+                    style="
+                      margin: auto;
+                      font-size: 25px;
+                      margin-left: 52px;
+                      margin-top: -3px;
+                    "
+                  >
+                    首页
+                  </div>
+                </el-col>
+                <el-col :span="6">
+                  <div
+                    style="
+                      margin: auto;
+                      font-size: 25px;
+                      margin-left: 52px;
+                      margin-top: -3px;
+                    "
+                  >
+                    活动
+                  </div>
+                </el-col>
+                <el-col :span="6">
+                  <div
+                    style="
+                      margin: auto;
+                      font-size: 25px;
+                      margin-left: 52px;
+                      margin-top: -3px;
+                    "
+                  >
+                    积分商城
+                  </div>
+                </el-col>
+                <el-col :span="6">
+                  <div
+                    style="
+                      margin: auto;
+                      font-size: 25px;
+                      margin-left: 52px;
+                      margin-top: -3px;
+                    "
+                  >
+                    个人中心
+                  </div>
+                </el-col>
+              </el-row>
+            </div>
+            <!-- 轮播图板块 -->
+            <div
+              style="
+                height: 320px;
+                background-color: rgb(250, 251, 252);
+                width: 940px;
+              "
+            >
+              <el-row>
+                <!-- 商品分类 -->
+                <el-col :span="3">
+                  <p style="font-size: 13px; margin-left: 17px">所有商品分类</p>
+                  <div style="margin-left: 15px">
+                    <el-popover placement="right" width="150px" trigger="click">
+                      <el-button>传说</el-button>
+                      <el-button>史诗</el-button>
+                      <el-button>限定</el-button>
+                      <el-button slot="reference">皮肤</el-button>
+                    </el-popover>
+                    <el-popover placement="right" width="250px" trigger="click">
+                      <el-button slot="reference">雕塑手办</el-button>
+                    </el-popover>
+                    <el-popover placement="right" width="250px" trigger="click">
+                      <el-button slot="reference">品牌联名</el-button>
+                    </el-popover>
+                    <el-popover placement="right" width="250px" trigger="click">
+                      <el-button slot="reference">服饰毛绒</el-button>
+                    </el-popover>
+                    <el-popover placement="right" width="250px" trigger="click">
+                      <el-button slot="reference">生活周边</el-button>
+                    </el-popover>
+                    <el-popover placement="right" width="250px" trigger="click">
+                      <el-button slot="reference">无畏契约</el-button>
+                    </el-popover>
+                  </div>
+                </el-col>
+
+                <!-- 走马灯 -->
+                <el-col :span="18">
+                  <template>
+                    <el-carousel indicator-position="outside" height="275">
+                      <el-carousel-item v-for="item in hpicture" :key="item">
+                        <img :src="item" alt="" style="height: 100%" />
+                      </el-carousel-item>
+                    </el-carousel>
+                  </template>
+                </el-col>
+                <!-- 公告 -->
+                <el-col :span="3">
+                  <p style="text-decoration: underline; font-size: 14px">
+                    公告:
+                  </p>
+                  <p style="font-size: 13px">无畏契约正式上线 参与活动赢Q币</p>
+                  <p style="font-size: 13px">
+                    66道具节开启 极品道具海量Q币免费抽！
+                  </p>
+                  <p style="font-size: 13px">
+                    超值返利计划初夏来袭，组团成功抽50Q币！
+                  </p>
+                  <p style="font-size: 13px">
+                    【英雄联盟手游】首购1元抽光谱幻影 金克丝
+                  </p>
+
+                  <!-- 下划线 -->
+                  <div
+                    style="
+                      margin-top: 27px;
+                      height: 1px;
+                      background-color: black;
+                      width: 100%;
+                    "
+                  ></div>
+                </el-col>
+              </el-row>
+            </div>
+
+            <!-- 限时抢购 -->
+
+            <div
+              style="
+                height: 500px;
+                margin: auto;
+                background-color: rgb(250, 251, 252);
+                width: 940px;
+              "
+            >
+              <h3 style="margin-left: 20px">限时抢购！</h3>
+              <p
+                style="
+                  height: 0px;
+                  width: 90px;
+                  border: 1px solid rgb(54, 171, 135);
+                  margin-left: 20px;
+                  margin-top: -15px;
+                  float: left;
+                "
+              ></p>
+              <p
+                style="
+                  height: 0px;
+                  width: 800px;
+                  margin-left: 0;
+                  border: 1px solid rgb(243, 244, 246);
+                  margin-top: -15px;
+                  float: left;
+                "
+              ></p>
+
+              <div
+                style="
+                  width: 900px;
+                  height: 440px;
+                  margin: auto;
+                  background-color: rgb(250, 251, 252);
+                "
+              >
+                <el-row :gutter="20">
+                  <el-col :span="6" v-for="item in flashArr" :key="item">
+                    <div class="flashSale">
+                      <div style="width: 180px; height: 290px">
+                        <img
+                          :src="item.url.replace('\\', ':').split(':')[1]"
+                          alt=""
+                          style="
+                            width: 138px;
+                            height: 220px;
+                            margin-left: 37px;
+                            margin-top: 20px;
+                          "
+                        />
+                      </div>
+                      <div
+                        style="
+                          text-align: center;
+                          height: 28px;
+                          margin-top: -25px;
+                          font-size: 12px;
+                          font-family: PingFang SC;
+                        "
+                      >
+                        {{item.name}}
+                      </div>
+                      <template>
+                        <div style="width: 100%; height: 20px">
+                          <el-statistic
+                            :value="deadline2"
+                            time-indices
+                            title=""
+                            format="HH:mm:ss"
+                            :value-style="{ color: 'red' }"
+                          >
+                            <template slot="prefix" color="white">
+                              剩余时间:
+                            </template>
+                          </el-statistic>
+                        </div>
+                      </template>
+                      <div style="height: 50px; text-align: center">
+                        <b style="color: rgb(255, 89, 0); font-size: 24px"
+                          >{{item.price}}QB</b
+                        >
+                        <s style="font-size: 9px">({{item.old_price}}QB)</s>
+                      </div>
+                      <button class="btn1" @click="hsbuynow(item.name)">
+                        立即购买
+                      </button>
+                    </div>
+                  </el-col>
+                </el-row>
+              </div>
+            </div>
+
+            <!-- 新品上架 -->
+            <div
+              style="
+                height: 750px;
+                margin: auto;
+                background-color: rgb(250, 251, 252);
+                width: 940px;
+              "
+            >
+              <el-row>
+                <h3 style="margin-left: 20px">新品上架！</h3>
+                <p
+                  style="
+                    height: 0px;
+                    width: 90px;
+                    border: 1px solid rgb(54, 171, 135);
+                    margin-left: 20px;
+                    margin-top: -15px;
+                    float: left;
+                  "
+                ></p>
+                <p
+                  style="
+                    height: 0px;
+                    width: 800px;
+                    margin-left: 0;
+                    border: 1px solid rgb(243, 244, 246);
+                    margin-top: -15px;
+                    float: left;
+                  "
+                ></p>
+                <el-col :span="18">
+                  <div
+                    style="
+                      min-height: 680px;
+                      background-color: rgb(250, 251, 252);
+                      margin: auto;
+                    "
+                  >
+                    <div class="newob" v-for="item in newobArr" :key="item">
+                      <img
+                        :src="item.url.replace('\\', ':').split(':')[1]"
+                        alt=""
+                        style="
+                          width: 125px;
+                          height: 205px;
+                          margin: 12px auto 0;
+                          display: block;
+                        "
+                      />
+                      <div
+                        style="
+                          color: rgb(85, 85, 85);
+                          height: 22px;
+                          text-align: center;
+                          margin: 10px auto 0;
+                        "
+                      >
+                        <b>{{item.name}}</b>
+                      </div>
+                      <div
+                        style="
+                          color: rgb(255, 89, 0);
+                          font-size: 16px;
+                          text-align: center;
+                          margin: 2px auto 0;
+                        "
+                      >
+                        <b>{{item.price}}Q币</b>
+                      </div>
+                      <button class="btn2" @click="nbbuynow(item.id)">
+                        立即购买
+                      </button>
+                    </div>
+                  </div>
+                </el-col>
+
+                <!-- 热销排行 -->
+                <el-col :span="6">
+                  <div
+                    style="
+                      min-height: 680px;
+                      background-color: rgb(250, 251, 252);
+                      margin-top: -19px;
+                    "
+                  >
+                    <h3 style="margin-left: 20px">热销排行:</h3>
+                    <p
+                      style="
+                        height: 0px;
+                        width: 90px;
+                        border: 2px solid rgb(54, 171, 135);
+                        margin-left: 20px;
+                        margin-top: -15px;
+                      "
+                    ></p>
+                    <div
+                      class="hotsale"
+                      v-for="item in hotsaleArr"
+                      :key="item"
+                      style="margin-top: 21px"
+                    >
+                      <div
+                        style="
+                          background-color: aquamarine;
+                          width: 92px;
+                          height: 100%;
+                          float: left;
+                          overflow: hidden;
+                        "
+                      >
+                        <img
+                          :src="item.url.replace('\\', ':').split(':')[1]  "
+                          style="width: 92px; object-fit: cover; display: block"
+                        />
+                      </div>
+                      <div
+                        style="
+                          background-color: rgb(250, 251, 252);
+                          width: 142px;
+                          height: 100%;
+                          float: left;
+                        "
+                      >
+                        <el-row>
+                          <el-col :span="16"
+                            ><div style="text-align: center">
+                              <i style="font-size: 6px">{{item.name}}</i>
+                              <br />
+                              <b style="color: rgb(255, 89, 0); font-size: 16px"
+                                >{{item.price}}.QB</b
+                              >
+                            </div></el-col
+                          >
+                          <el-col :span="8"
+                            ><div style="text-align: center; margin-top: 2px">
+                              <b
+                                style="color: rgb(23, 101, 39); font-size: 16px"
+                                >已售:</b
+                              >
+                              <p style="font-size: 15px; font-weight: bold">
+                                {{item.sale}}件
+                              </p>
+                            </div></el-col
+                          >
+                        </el-row>
+                      </div>
+                    </div>
+                  </div>
+                </el-col>
+              </el-row>
+            </div>
+
+            <!-- 周边商城 -->
+            <div style="background-color: rgb(250, 251, 252)">
+              <h3 style="margin-left: 20px">周边商城</h3>
+              <p
+                style="
+                  height: 0px;
+                  width: 90px;
+                  border: 1px solid rgb(54, 171, 135);
+                  margin-left: 20px;
+                  margin-top: -15px;
+                  float: left;
+                "
+              ></p>
+              <p
+                style="
+                  height: 0px;
+                  width: 800px;
+                  margin-left: 0;
+                  border: 1px solid rgb(243, 244, 246);
+                  margin-top: -15px;
+                  float: left;
+                "
+              ></p>
+              <div
+                style="
+                  background-color: rgb(250, 251, 252);
+                  width: 940px;
+                  margin-top: 30px;
+                  height: 300px;
+                "
+              >
+                <el-empty
+                  :imagr-size="50"
+                  image="./img/敬请期待.png"
+                  description="敬请期待"
+                ></el-empty>
+              </div>
+            </div>
+          </el-main>
+          <!-- 脚 -->
+          <el-footer>
+            <div style="width: 940px; background-color: #3f3f3f; height: 100px">
+              <div>
+                <img src="./img/logo foot.png" style="float: left" alt="" />
+              </div>
+              <div
+                style="
+                  float: left;
+                  font-size: 16px;
+                  color: white;
+                  margin-top: 20px;
+                  margin-left: 148px;
+                "
+              >
+                代码都对队有限公司所有
+                <br />
+                <p>
+                  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp制作人:一位不愿透露姓名的ikun
+                </p>
+              </div>
+            </div>
+          </el-footer>
+        </el-container>
+      </div>
+    </div>
+
+    <script>
+      var v = new Vue({
+        el: "#app",
+        data: {
+          input1: "",
+          flashArr: [],
+          newobArr: [],
+          hotsaleArr: [],
+          deadline2: Date.now() + 1000 * 60 * 60 * 8,
+          isCollapse: true,
+          hpicture: [
+            "./img/宝典.png",
+            "./img/情人节.png",
+            "./img/玉剑.png",
+            "./img/琴.png",
+          ],
+        },
+        methods: {
+          handleOpen(key, keyPath) {
+            console.log(key, keyPath);
+          },
+          handleClose(key, keyPath) {
+            console.log(key, keyPath);
+          },
+          hsbuynow(name) {
+            axios.get("/skinbase/hsbuynow?name=" + name).then((res) => {});
+            location.reload();
+          },
+          nbbuynow(id) {
+            axios.get("/skinbase/nbbuynow?id=" + id).then((res) => {});
+            location.reload();
+          },
+          UserSelect() {
+            axios.get("/skinbase/search_result?search="+v.input1).then((res)=>{})
+            location.href='./search.html'
+          },
+        },
+        created: function () {
+          axios.get("/skinbase/gethsale").then((res) => {
+            v.hotsaleArr = res.data;
+          });
+
+          axios.get("/skinbase/getfarr").then((res) => {
+            v.flashArr = res.data;
+          });
+
+          axios.get("/skinbase/getnarr").then((res) => {
+            v.newobArr = res.data;
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

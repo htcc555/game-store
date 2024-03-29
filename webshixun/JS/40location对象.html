@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location</title>
+</head>
+<body>
+    <h1 onclick="location.href='https:www.baidu.com'">点击跳转</h1>
+    <h1 onclick="f2()">点我刷新页面</h1>
+    <h1 onclick="f3()">点我跳转</h1>
+    <!-- Location对象中封装了浏览器的地址栏的信息   -->
+    <script>
+        console.log(location)
+        console.log(location.href)//全路径地址
+        console.log(location.protocol)//协议
+        console.log(location.hostname)//主机名
+        console.log(location.host)//主机
+        console.log(location.port)//当前地址的端口号
+        console.log(location.pathname)//当前地址的路径部分
+        console.log(location.search)//地址
+        console.log(location.origin)//来源
+
+        //修改地址
+        // location.href='https:www.baidu.com'
+        // location="https:www.baidu.com"
+        //location.assign("https:www.baidu.com")
+        function f2(){
+            // 重新加载当前页面,加上true会强制清空缓存刷新页面
+            location.reload(true)
+        }
+        function f3(){
+            //使用一个新的页面替换当前页面,调用完毕也会跳转,但是不会生成历史记录,不能使用回退
+            location.replace("https:www.baidu.com")
+        }
+    </script>
+</body>
+</html>

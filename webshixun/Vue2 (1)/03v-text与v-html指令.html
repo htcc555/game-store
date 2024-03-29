@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-text与v-html</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <!-- v-text可以替换标签中的值,插入值则用简写插值表达式 {{}} -->
+    <!-- v-html可以替换标签中的值,将文本内容解析html代码 -->
+    <div id="app">
+        <h1 v-text="message">在这么热的天</h1>
+        <h1>在这么热的天{{message}}</h1>
+        <h2 v-text="a"></h2>
+        <h2 v-html="a"></h2>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                message:"你离我那么远",
+                a:'<a href="#">点击一下</a>'
+            }
+        })
+    </script>
+</body>
+</html>

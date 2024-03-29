@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内边距</title>
+    <style>
+         *{  /*可以取消元素中默认的内外边距*/
+            margin: 0;
+            padding: 0;
+            
+        }
+        .d1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            /* 设置单独某一边的内边距 */
+            /* padding-left/top/right/bottom */
+            /*一个值,元素四边都会有20px的内边距*/    
+            /* 两个值上下左右 */
+            /* 三个值时  上 左右 下 */
+            /* 四个值 上右下左*/
+            /* 内边距使用后会对原本的元素大小改变 */
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <span>快递真是太坑了</span>
+    </div>
+</body>
+</html>

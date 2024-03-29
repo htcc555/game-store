@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习1</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-text="add" v-on:click="f1(num)"></button>
+        <button v-text="num"></button>
+        <button v-text="sub" v-on:click="f2(num)"></button>
+    </div>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                add:'+',
+                sub:'-',
+                num:0,
+            },
+            methods:{
+                f1(t){
+                    t++;
+                    console.log(this.num)
+                    this.num=t
+                },
+                f2(t){
+                    t--;
+                    console.log(this.num)
+                    this.num=t
+                }
+            },
+        })
+    </script>
+</body>
+</html>

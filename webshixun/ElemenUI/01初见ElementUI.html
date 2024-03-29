@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElementUI</title>
+    <script src="./js/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+    <div id="app">原生按钮</div>    
+    <!-- 基于Vue.0,必须搭好vue才能使用element
+        1.element元素需要写在vue生效的范围内
+        2.js引入时一定要先引用vue再引用element
+     -->
+     <el-button disabled>默认按钮</el-button>
+    <script>
+        let v=new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+
+            },
+        })
+    </script>
+</body>
+</html>

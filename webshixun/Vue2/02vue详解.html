@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>详解</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{m}}
+        <div>
+            {{m}}
+        </div>
+        <h2>{{arr[1]}}</h2>
+        <h3>{{hero.name}}</h3>
+    </div>
+    <h1>{{m}}</h1>
+
+
+    <!-- view视图 VM:view model -->
+    <script>
+        new Vue({
+            //el:挂载点/钩子 决定vue的生效范围 选择器可以是标签/类/id/子元素
+            el:"#app",
+            //date存放数据,
+            data:{
+                m:"想吃饭了",
+                num:1,
+                arr:[1,2,3,4,5],
+                hero:{name:"刘备",age:18,address:"蜀汉"}
+            },
+        })
+    </script>
+
+</body>
+</html>,

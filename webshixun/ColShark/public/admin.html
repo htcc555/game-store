@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理页面</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+    <script src="./js/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <el-container style="height: 800px; border: 1px solid #eee">
+            <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+                <el-menu @select="menuChange" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"
+                    :default-openeds="['1','2','3']">
+                    <el-submenu index="1">
+                        <template slot="title"><i class="el-icon-menu"></i>分类管理</template>
+                        <el-menu-item @click="categorySend()">添加分类</el-menu-item>
+                        <el-menu-item index="1-2">分类管理</el-menu-item>
+                    </el-submenu>
+                    <el-submenu index="2">
+                        <template slot="title"><i class="el-icon-shopping-bag-1"></i>商品管理</template>
+                        <el-menu-item index="2-1">添加商品</el-menu-item>
+                        <el-menu-item index="2-2">商品管理</el-menu-item>
+                    </el-submenu>
+                    <el-submenu index="3">
+                        <template slot="title"><i class="el-icon-picture"></i>轮播图管理</template>
+                        <el-menu-item index="3-1">添加轮播图</el-menu-item>
+                        <el-menu-item index="3-2">轮播图管理</el-menu-item>
+                    </el-submenu>
+                </el-menu>
+            </el-aside>
+
+            <el-container>
+                <el-header style="text-align: right;
+                height: 80px;background-color: #545c64;
+                color: #fff;">
+                    <h1 align="left" style="float: left;font-size: 22px;">欢迎管理员回来</h1>
+                    <el-dropdown style="margin-top: 30px;">
+                        <i class="el-icon-setting" style="margin-right: 15px;color: #fff;"></i>
+                        <el-dropdown-menu slot="dropdown">
+                            <el-dropdown-item>主页面</el-dropdown-item>
+                            <el-dropdown-item>退出</el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
+                    <span>管理员</span>
+                </el-header>
+
+                <el-main>
+                    <!-- 分类列表 -->
+                    <div v-show='index=="1-2"'>
+                        <h1>分类管理页面</h1>
+                        <template>
+                            <!-- :data遍历categoryArr数组,将数据显示在表格中 -->
+                            <el-table :data="categoryArr" stripe style="width: 100%">
+                                <el-table-column type="index" label="分类序号" width="180"></el-table-column>
+                                <el-table-column prop="id" label="分类id" width="180"></el-table-column>
+                                <el-table-column prop="name" label="分类内容"></el-table-column>
+                                <el-table-column label="操作">
+                                    <!-- scope里面装着遍历对象,scope.row得到当前的遍历对象 -->
+                                    <template slot-scope="scope">
+                                        <!-- 气泡确认组件scope.$index:代表遍历对象在数组中的下标,scope.row代表遍历对象 -->
+                                        <el-popconfirm title="您确定删除此轮播图么?"
+                                            @confirm="deleteCategory(scope.$index,scope.row)">
+                                            <el-button size="mini" type="danger" slot="reference">删除</el-button>
+                                        </el-popconfirm>
+                                    </template>
+                                </el-table-column>
+                            </el-table>
+                        </template>
+                    </div>
+
+                    <!-- 商品列表 -->
+                    <div v-show='index=="2-2"'>
+                        <h1>商品管理页面</h1>
+                    </div>
+
+                    <!-- 轮播图列表 -->
+                    <div v-show='index=="3-2"'>
+                        <h1>轮播图管理页面</h1>
+                        <template>
+                            <!-- :data遍历bannerArr数组,将数据显示在表格中 -->
+                            <el-table :data="bannerArr" stripe style="width: 100%">
+                                <el-table-column type="index" label="轮播图序号" width="180"></el-table-column>
+                                <el-table-column prop="id" label="轮播图id" width="180"></el-table-column>
+                                <el-table-column label="轮播图" width="300">
+                                    <template slot-scope="scope">
+                                        <img :src="scope.row.url" width="200px" alt="">
+                                    </template>
+                                </el-table-column>
+                                <el-table-column label="操作">
+                                    <!-- scope里面装着遍历对象,scope.row得到当前的遍历对象 -->
+                                    <template slot-scope="scope">
+                                        <!-- 气泡确认组件scope.$index:代表遍历对象在数组中的下标,scope.row代表遍历对象 -->
+                                        <el-popconfirm title="您确定删除此轮播图么?"
+                                            @confirm="deleteBanner(scope.$index,scope.row)">
+                                            <el-button size="mini" type="danger" slot="reference">删除</el-button>
+                                        </el-popconfirm>
+                                    </template>
+                                </el-table-column>
+                            </el-table>
+                        </template>
+                    </div>
+                </el-main>
+            </el-container>
+        </el-container>
+    </div>
+
+    <script>
+        let v = new Vue({
+            el: '#app',
+            data: {
+                index: '1-2',
+                bannerArr: [],
+                categoryArr:[]
+            },
+            //创建页面时执行代码
+            created: function () {
+                //得到地址栏参数 判断地址栏中是否包含index参数
+                if(location.search.indexOf('index')!=-1){
+                    this.index=location.search.split("=")[1]
+                }
+
+
+                axios.get('/banner/list').then(res => {//获取轮播图
+                    v.bannerArr = res.data
+                })
+                axios.get('/category/list').then(res=>{//获取分类信息
+                    v.categoryArr = res.data
+                })
+            },
+            methods: {
+                menuChange(index) {//导航栏选中会有index传入方法
+                    if (index == '3-1') {//如果index值为3-1,则跳转到轮播图上传页面
+                        location.href = '/bannerSend.html'
+                    } else if (index == '2-1') {//如果index值为2-1,则跳转到商品上传页面
+                        location.href = '/productSend.html'
+                    } else{
+                        v.index = index;
+                    }
+                },
+                //添加数据
+                categorySend(){//添加分类
+                    this.$prompt('请输入分类', '添加分类', {
+                            confirmButtonText: '确定',
+                            cancelButtonText: '取消',
+                        }).then(({ value }) => {
+                            axios.get('/category/send?category='+value).then(res=>{})
+                            this.$message({
+                                type: 'success',
+                                message: '已成功添加分类'+value
+                            });
+                        }).catch(() => {
+                            this.$message({
+                                type: 'info',
+                                message: '取消输入'
+                            });
+                        });
+                },
+                //删除
+                deleteBanner(index, banner) {//删除轮播图
+                    axios.get('/banner/del?url=' + banner.url).then(res => { })
+                    location.reload();
+                },
+                deleteCategory(index, category) {//删除分类
+                    axios.get('/category/del?id=' + category.id).then(res => { })
+                    location.reload();
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>

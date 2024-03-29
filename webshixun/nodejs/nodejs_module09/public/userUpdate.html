@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户修改页面</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+    <script src="./js/axios.min.js"></script>1
+</head>
+<body>
+    <div id="app">
+        <h1>用户修改页面</h1>
+        <span>该用户的id值为:{{user.id}}</span><br>
+        该用户名:<el-input v-model="user.username" placeholder="请输入内容" :disabled="true"></el-input>
+        该用户密码:<el-input v-model="user.password" placeholder="请输入内容"></el-input>
+        <el-button @click=send()>修改</el-button>
+    </div>
+
+    <script>
+        let v = new Vue({
+            el:'#app',
+            data:{
+                user:{}
+            },
+            methods:{
+                send(){
+                    axios.post('/user/send',v.user).then(res=>{
+                    })
+                    location.href="/userlist.html"
+                }
+            },
+            created:function(){
+                var a=location.search.split("=")[1]//获取导航栏上的id值
+                //通过id值向info接口提交异步请求获取该id用户信息
+                axios.get("/user/info?id="+a).then(res=>{
+                    v.user=res.data
+                })
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>异常演示</title>
+</head>
+<body>
+    <script>
+        //Eval错误
+        //EvalError指示eval()函数中的错误,更新版本后JavaScript不会抛出任何的EvalError
+        //SyntaxError代替
+
+
+        //此函数可以接受一个str作为参数,并且把他当作js代码去执行,如果结果是一个值则返回此值
+        //否则返回undefined
+        console.log(eval("var a=1"))
+        console.log(eval("2+8"))
+
+        try{
+            eval("alert('hello)");
+        }catch(error){
+            console.log(error)
+        }
+        //范围错误 RangeError会使你是用了合法值之外的数字时抛出
+        //例:不能将数字的有效位数设置为500
+        var num=1
+        try{
+            num.toPrecision(500)
+        }
+        catch(error)
+        {
+            console.log(error)
+        }
+
+        //引用错误
+        //如果你使用了尚未申明的变量,ReferenceError会被抛出
+        var x
+        try{
+            x=y+1
+        }
+        catch(error)
+        {
+            console.log(error)
+        }
+        //语法错误
+        //如果你计算带语法错误的代码,则SyntaxError被抛出
+        try{
+            eval("alert('hello)");
+        }
+        catch(error)
+        {
+            console.log(error)
+        }
+        //类型错误
+        //如果你使用的值不在期望值范围之内,则TypeError被抛出
+        var num=1
+        try{
+            num.toUpperCase();//将数字转化为大写
+        }
+        catch(error)
+        {
+            console.log(error)
+        }
+        //URI错误
+        //如果你在URI函数中使用非法字符,则URIERror被抛出
+        try{
+            decodeURI("%%%")// %%%是无法进行decode编码
+        }
+        catch(error)
+        {
+            console.log(error)
+        }
+
+        //将decode编码转义成中文,因为浏览器URL部分不能带中文,所以在访问时先将中文转成decode编码
+        var d=decodeURI("%E4%BD%A0%E5%A5%BD")
+        console.log(d)
+    </script>
+</body>
+</html>

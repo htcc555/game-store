@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+</head>
+<body>
+    <!-- 
+        <el-container>：外层容器。当子元素中包含 <el-header> 或 <el-footer> 时，全部子元素会垂直上下排列，否则会水平左右排列。
+        <el-header>：顶栏容器。
+        <el-aside>：侧边栏容器。
+        <el-main>：主要区域容器。
+        <el-footer>：底栏容器。
+     -->
+    <div id="app">
+        <el-container>
+            <el-header style="background-color: red;">头</el-header>
+            <el-container>
+                <el-aside width="200px" style="background-color: blue;">侧</el-aside>
+                <el-container>
+                    <el-header style="background-color: red;">头</el-header>
+                    <el-container>
+                        <el-aside width="200px" style="background-color: blue;">侧</el-aside>
+                        <el-main style="background-color: yellow">身体</el-main>
+                        <el-aside width="200px" style="background-color: blue;">侧</el-aside>
+                    </el-container>
+                    <el-footer style="background-color: green">脚</el-footer>
+                </el-container>
+            </el-container>
+            <el-footer style="background-color: green">脚</el-footer>
+        </el-container>
+
+
+    </div>
+    <script>
+        let v = new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

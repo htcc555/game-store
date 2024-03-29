@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <!-- 事件: onclick ->   v-on:click 简写方式 @click -->
+    <div id="app">
+        <h1 v-on:click="f1()">点我一下试试</h1>
+        <h1 @click="f1()">点我一下试试</h1>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+                f1(){
+                    alert("你干嘛?哎呦~~")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

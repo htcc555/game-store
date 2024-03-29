@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素修改练习2</title>
+</head>
+<body>
+    <ul id="ul">
+        <li id="first">1</li>
+        <li>2</li>
+        <li id="three">3</li>
+        <li id="last">4</li>
+    </ul>
+<script>
+        var ul=document.getElementById("ul")
+        var first=document.getElementById("first")
+        var last=document.getElementById("last")
+        //删除第一个
+        ul.removeChild(first)
+
+        //替换最后一个
+        var li5=document.createElement("li")
+        li5.innerHTML="5"
+        ul.replaceChild(li5,last)
+
+        //指定在列表前三插入li并且id为zero
+        var liinsert=document.createElement("li")
+        liinsert.setAttribute('id','zero')
+        liinsert.innerHTML="charu"
+        var three=document.getElementById("three")
+        //在ul中插入liinsert在three的前面
+        ul.insertBefore(liinsert,three)
+
+</script>
+
+</body>
+</html>

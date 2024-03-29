@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form表单</title>
+</head>
+<body>
+    <!-- form表单:提交地址-action  提交方式-get/post: get-会将信息显示在导航栏  -->
+    <form action="https://www.baidu.com/" method="get" >
+        <!-- 文本框-input 占位文本-placeholder  最大长度-maxlength  属性名称-name    -->
+        <input type="text" placeholder="请输入账号" maxlength="4" value="123"  name="username">
+        <!-- 密码框 -->
+        <input type="password" name="password">
+        <!-- 提交按钮 -->
+        <input type="submit" value="上传">
+        <button type="submit">上传</button>
+        <!-- 重置按钮 -->
+        <input type="reset" value="重置按钮">
+        <button type="reset">重置按钮</button>
+        <!-- 普通按钮 -->
+        <input type="button" value="普通按钮">
+        <button>普通按钮</button>
+        <!-- 日期 -->
+        <input type="date" name="date">
+        <!-- 文件 -->
+        <input type="file" name="file"><br>
+        <!-- 单选框:必须加上value,否则传输的值都为on -->
+        <input id="r1" type="radio" name="gender" value="m"> 
+        <label for="r1">男</label> <br>
+        <input type="radio" name="gender" value="w">女<br>
+        <!-- 多选框 -->
+        <input id="r2" type="checkbox" name="hobby" value="sing" checked>
+        <label for="r2">唱歌</label><br>
+        <input type="checkbox" name="hobby" value="bas">篮球<br>
+        <input type="checkbox" name="hobby" value="d">跳<br>
+
+        <!-- 下拉框 -->
+        <select name="address" id="">
+            <option value="cq">重庆</option>
+            <option value="am">澳门</option>
+            <option value="yn" selected>云南</option>
+            <option value="sc">四川</option>
+        </select>
+
+
+
+    </form>
+</body>
+</html>

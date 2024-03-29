@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <!-- v-bind指令,可以替换标签属性,简写方式在属性前加: -->
+    <div id="app">
+        <h1 v-bind:style="color">我是黑色的标签,名为小黑子</h1>
+        <h1 :style="color">我是黑色的标签,名为小黑子</h1>
+        <a :href="link">百度一下</a>
+        <h2 :class="c">123</h2>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                color:'color:yellow',
+                link:"https://www.baidu.com",
+                c:'c1'
+            }
+        })
+    </script>
+</body>
+</html>

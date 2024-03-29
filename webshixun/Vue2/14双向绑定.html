@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双向绑定</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <!-- v-model双向绑定:如果修改data中值,标签中会发生改变;改变标签中的值,则data中的值也会发生改变
+        只要是input就用v-modle绑定数据
+    -->
+    <!-- 在木鱼里面,可以手动输入每次点击加的功德数 -->
+    <div id="app">
+        <button @click="message++">敲一下</button>
+        <h3>你敲了{{message}}下</h3>
+        <input type="text" v-model="message" value="请输入">
+    </div>
+    <script>
+        let v=new Vue({
+            el:'#app',
+            data:{
+                message:0,
+            },
+            methods:{}
+
+
+
+        })
+    </script>
+</body>
+</html>

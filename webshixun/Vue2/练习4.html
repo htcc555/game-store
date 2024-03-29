@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习4</title>
+    <script src="./js/vue.js"></script>
+
+    <style>
+        .d{
+            width:70px;
+            height: 300px;
+            float: left;
+            box-shadow: black 0 0 10px 0;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="d" @click="f(1)"></div>
+        <div class="d" @click="f(2)"></div>
+        <div class="d" @click="f(3)"></div>
+        <div class="d" @click="f(4)"></div>
+        <div class="d" @click="f(5)"></div>
+        <div class="d" @click="f(6)"></div>
+        <div class="d" @click="f(7)"></div>
+    </div> 
+
+    <script>
+        new Vue({
+            el:"#app",
+            data:{},
+            methods:{
+                f(x){
+                switch(x){
+                case 1:var m=new Audio('../JS/mp3/myMp新3/h1.mp3');m.play();break;
+                case 2:var m=new Audio('../JS/mp3/myMp新3/h2.mp3');m.play();break;
+                case 3:var m=new Audio('../JS/mp3/myMp新3/h3.mp3');m.play();break;
+                case 4:var m=new Audio('../JS/mp3/myMp新3/h4.mp3');m.play();break;
+                case 5:var m=new Audio('../JS/mp3/myMp新3/h5.mp3');m.play();break;
+                case 6:var m=new Audio('../JS/mp3/myMp新3/h6.mp3');m.play();break;
+                case 7:var m=new Audio('../JS/mp3/myMp新3/h7.mp3');m.play();break;
+                        }
+                    }
+                }
+        })
+    </script>
+
+</body>
+</html>

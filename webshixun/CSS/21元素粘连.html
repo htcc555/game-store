@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素粘连</title>
+    <style>
+        .d1{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            overflow: hidden;/*解决元素粘连问题*/
+        }
+        .d2{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            margin: 75px;
+        }
+        .d3{
+            width: 200px;
+            height: 200px;
+            /* overflow:hidden 超出部分进行隐藏,scroll滑动显示 */
+            overflow:scroll;
+            border-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <div class="d2">
+        </div>
+    </div>
+    <div class="d3">
+        <img src="../img/2.jpg" width="400px" height="400px" alt="">
+    </div>
+</body>
+</html>

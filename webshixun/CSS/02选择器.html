@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器</title>
+    <style>
+    /* 标签选择器:直接写标签名称,格式: 标签名{样式} */
+    h3{
+
+    }
+    /* id选择器 给标签定义一个id名,格式 #id{样式} */
+    #i1{
+        color: blanchedalmond;
+    }
+    #i2{
+        color:yellow;
+    }
+    #i3{
+        color: rgb(34, 104, 69);
+    }
+
+    /* class(类)选择器,使用最多 格式: .类名{样式} */
+    .c1{
+        color: yellowgreen;
+    }
+    /* 组合选择器,同时选中多个,中间用,隔开 */
+    #i1,#i2{
+        color: rebeccapurple;
+    }
+    /*子元素选择器,只选中d1下面的p标签,中间>隔开*/
+    .d1>p{
+        color: darkorange;
+    }
+    /* 子孙后代选择器,选中d1下的所有p标签,中间用空格隔开 */
+    .d1 p{
+        color: pink;
+    }
+    /* 伪类选择器
+        a:link未访问/visited访问过/hover悬浮/active点击
+     */
+    a:hover{
+        color: antiquewhite;
+    }
+    a:active{
+        color: aqua;
+    }
+    a:visited{
+        color: blueviolet;
+    }
+    a:link{
+        color: violet;
+    }
+    </style>
+</head>
+<body>
+    <a href="#">点击一下</a>
+
+    <div class="d1">
+        <p>我是d1下的p标签</p>
+        <span>我是d1下的span</span>
+        <div class="d2">
+            我是d2下的p标签
+            <div class="d3">
+                我是d3下的p标签
+            </div>
+        </div>
+    </div>
+
+
+
+    <h3 class="c1" id="i1">今天真是好日子</h3>
+    <h3 class="c1" id="i2">今天天气很好</h3>
+    <h3 class="c1" id="i3">各位早上好</h3>
+</body>
+</html>

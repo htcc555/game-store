@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout布局</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+    <style>
+        *{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- el-row 可以将外部的div分成24份 -->
+        <el-row :gutter="20">
+            <!-- :span 这个所占的份数 -->
+            <el-col :span="6">
+                <img src="./img/后裔.png" width="100%" alt="">
+            </el-col>
+            <el-col :span="12">
+                <img src="./img/后裔.png" width="100%" alt="">
+            </el-col>
+            <el-col :span="6">
+                <img src="./img/后裔.png" width="100%" alt="">
+            </el-col>
+            
+          </el-row>
+    </div>
+    <script>
+        let k=new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

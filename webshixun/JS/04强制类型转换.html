@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>强制类型转换</title>
+</head>
+<body>
+    <script>
+        var s1='你好'
+        var num1=1
+        var age=18
+        var num2=2
+        console.log(s1+num1)
+        console.log(num1+num2)
+        console.log("我几年"+age+num1+"岁")
+        //typeof运算符,可以检查一个变量的数据类型
+        console.log(typeof age)
+        //强制类型转化
+        //toString/String()/拼串
+        age=age.toString()
+        console.log(typeof age)
+        num1=String(num1)
+        console.log(typeof num1)
+        
+        //Number() parseInt() parseFloat()
+       /*
+        NUmber()
+            字符串->数字
+                如果是纯数字的字符串,则直接变成数字
+                如果字符串中有非数字内容,则变成NaN
+                如果字符串是一个空串或者全是空格,则转化为0
+            布尔型 ->数字  
+                true转成1
+                false转成0
+            null->数字 0
+            undefine->数字 NaN
+        
+        parseInt()专用于字符串,将一个字符串转化成整数
+        parseFloat()专用于字符串,将一个字符串转化成浮点数
+        如果对非String使用parseInt() parseFloat() ,它会先将其转换化为String然后再操作
+       */
+
+        // 转化为Boolean
+        //使用Boolean()函数
+        /*
+            数字->布尔
+                除了0和NaN,其余都是true
+            字符串->布尔
+                除了空串,其他都是true
+            null和undefined都会转化为false
+            对象也会转化为true
+        */
+        console.log(age*1+num2)
+        age=Number(age)
+        var s2='字符串123数字'
+        s2=Number(s2)
+        console.log(s2)
+        var t=true
+        var f=false
+        t=Number(t)
+        f=Number(f)
+        console.log('值:'+t+f)
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标事件</title>
+</head>
+<body>
+    <!-- 事件概述:html事件可以触发浏览器中的行为,比方说当某用户点击某个html启动代码,则启动某段代码 -->
+    <!-- 鼠标事件:通过鼠标触发事件,类似用户的行为 -->
+    <!-- onmouseout:当鼠标指针移出元素时运行的脚本 -->
+    <!-- onmouseenter:当鼠标指针移至元素时运行的脚本 -->
+    <!-- onmouseleave:当鼠标指针移出元素时运行的脚本 -->
+    <!-- onmousewheel:当鼠标滚轮转动时运行的脚本 -->
+    <!-- onscroll:当鼠标滚动条时运行的脚本 -->
+    <button onclick="f1()">单击</button>
+    <button ondblclick="f2()">双击</button>
+    <button onmousedown="f2()">鼠标按下</button>
+    <button onmouseon="f2()">鼠标抬起</button>
+    <button onmouseover="f2()">鼠标悬浮</button>
+
+    <script>
+        function f1()
+        {
+            alert('你干嘛~')
+        }
+        function f2()
+        {
+            alert('哎哟~')
+        }
+    </script>
+</body>
+</html>

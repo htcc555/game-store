@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优先级</title>
+    <style>
+        h1{
+            color: red;
+        }
+        #c1{
+            color: green;
+        }
+        .i1{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 当多个选择器样式冲突,则靠优先级决定样式显示 -->
+    <!--优先级 行内样式>id>class>标签>继承 -->
+    <!-- 范围越小,离得越近,优先级越高 -->
+    <h1 class="c1" id="i1">我没k</h1>
+</body>
+</html>

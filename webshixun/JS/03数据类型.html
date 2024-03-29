@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型</title>
+</head>
+<body>
+    <button onclick="alert('ni干嘛')"></button>
+    <script>
+        //JavaScript若语言,没有数据类型的强分
+        var a=1;
+        var b='你好'
+        console.log(a);
+        console.log(b);
+        //数据类型分类
+        //数值型(Number) 包括整数,小数,负数
+        var num1=1;
+        var num2=1.1;
+        var num3=-13;
+        console.log(num1+num2+num3);
+        //字符串型(string) 只要是单引号或双引号包裹的
+        //单引号和双引号都可以 
+        var s1='今天是阴天';
+        console.log(s1);
+        //布尔型(Boolean)
+        var t=true
+        var f=false
+        console.log('我是布尔型:'+t)
+        console.log('我是布尔型:'+f)
+        //undefined型
+        var u=undefined
+        //null型
+        var n=null
+        //对象数据类型
+        var 刘备={name:"刘备",age:18,height:180}
+        console.log(刘备)
+        console.log('刘备的年龄是:'+刘备.age)
+        //数组
+        var arr=[1,445,87,66,56,777,6,'我是字符串',true,{name:"张三",minname:'法外狂徒'},[897,55,44]]
+        console.log("数组为:"+arr)
+        console.log("数组中的数字为:"+arr[9].name)
+        console.log("数组中的数字为:"+arr[10][1])
+        var info=[
+            {id:1,created:"2023-8-4",message:"今天是个好日子",user:"张三"}
+        ]
+
+    </script>
+</body>
+</html>

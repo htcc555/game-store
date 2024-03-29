@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王者荣耀</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 整个界面的宽度 -->
+        <div style="width:1200px;margin:0 auto;background-color: aqua;">
+            <!-- 单个英雄的框 -->
+            <div v-for="item in heroes" style="float: left; 
+            width: 220px;height: 360px;background-color: bisque;
+            margin: 10px 10px 0 0;padding: 10px 35px;text-align: center;
+            border-radius: 6px;box-shadow: 1px 1px 10px 0;">
+                <img :src="item.url" width="220px" height="220px" alt="">
+                <h1>{{item.name}}</h1>
+                <p>{{item.detail}}</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        let v=new Vue({
+            el:'#app',
+            data:{
+                heroes:[
+                    {id:1,url:'./imgs/凯.png',name:'凯',detail:'无脑冲'},
+                    {id:2,url:'./imgs/宫本.png',name:'宫本',detail:'无脑冲'},
+                    {id:3,url:'./imgs/韩信.png',name:'韩信',detail:'无脑冲'},
+                    {id:4,url:'./imgs/后裔.png',name:'后裔',detail:'无脑冲'},
+                    {id:5,url:'./imgs/花木兰.png',name:'花木兰',detail:'无脑冲'},
+                    {id:6,url:'./imgs/镜.png',name:'镜',detail:'无脑冲'},
+                    {id:7,url:'./imgs/橘子.png',name:'橘子',detail:'无脑冲'},
+                    {id:8,url:'./imgs/孙策.png',name:'孙策',detail:'无脑冲'},
+                ]
+            },
+            methods:{}
+
+
+
+        })
+    </script>
+</body>
+</html>

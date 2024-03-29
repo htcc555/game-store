@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按钮</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+
+    <style>
+        #btn1{
+            width: 500px;
+            color:aquamarine;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 按钮 -->
+        <el-button>默认按钮</el-button>
+        <el-button type="info">信息按钮</el-button>
+        <el-button type="warning" plain>警告按钮</el-button>
+        <el-button id="btn1" type="danger" round plain>危险按钮</el-button>
+        <hr>
+        <!-- 链接 -->
+        <el-link href="https://element.eleme.io" target="_blank">默认链接</el-link>
+        <el-link type="primary" :disabled="true">主要链接</el-link>
+        <el-link type="success" :underline="false" >成功链接</el-link>
+        <el-link type="warning" :disabled="isClick">警告链接</el-link>
+        <hr>
+        <!-- 图标 -->
+        <i class="el-icon-delete"></i>
+        <i style="font-size: 100px;" class="el-icon-loading"></i>
+        <i class="el-icon-printer"></i>
+    </div>
+    <script>
+        let v=new Vue({
+            el:'#app',
+            data:{
+                isClick:false,
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

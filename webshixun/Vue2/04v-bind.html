@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <!-- v-bind指令,可以替换标签属性,简写方式是在属性前加 :  -->
+    <div id="app">
+        <h1 v-bind:style='color'>我是黑色的标签</h1>
+        <a v-bind:href='link'>点击一下</a>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                color:'color:pink',
+                link:'https://v2.cn.vuejs.org/v2/guide/migration-vue-2-7.html',
+            }
+        })
+    </script>
+
+</body>
+</html>

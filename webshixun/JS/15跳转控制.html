@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break和continue</title>
+</head>
+<body>
+    <!-- 
+        break（跳出）：结束最近一次循环，可以再循环和switch中使用
+        continue（跳过）：结束本次循环，执行下一次循环，只能在循环中使用
+        break终止此次整个循环，continue结束此次循环
+     -->
+
+     <!-- 输出从0-50中除了7,7的倍数和带有7的以外的数 -->
+    <script>
+        
+    //      for(var i=0;i<51;i++)
+    //  {
+    //     if(i%7==0 && i!=0 ||i%10==7)
+    //     continue;
+    //     console.log(i);
+    //  }
+
+    for(var j=1;j<=9;j++)
+    {
+    for(var k=1;k<=j;k++)
+    {
+        document.write(k+'x'+j+'='+j*k+' ')    
+    }
+    document.write('<br>')
+    }
+    </script>
+
+</body>
+</html>

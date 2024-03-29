@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相对定位</title>
+    <style>
+    .d1{
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+    }
+    .d1:hover{
+        position: relative;
+        right: 20px;
+        top: 20px;
+    }
+    </style>
+</head>
+<body>
+    <!-- 相对定位:left/top/right/bottom来控制位置
+        特点:可以实现元素层叠,元素不脱离文档流
+        应用场景:当需要移动某个元素而其他元素不受影响时使用(元素位置微调)
+     -->
+    <div class="d1"></div>
+    <div class="d1"></div>
+    <div class="d1"></div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其他窗口方法</title>
+</head>
+<body>
+    <!-- window.open():打开新窗口
+        window.open(URL,name,specs,replace)
+        URL:可选,打开指定的页面URL,如果没有指定URL,则打开一个新的空白页面
+        name:可选,指定target属性或窗口的名称,支持以下值:
+            _blank-URL加载到一个新的窗口.(默认)
+            _parent-URL加载到父框架
+            _self-URL替换当前页面
+            name-窗口名称
+            specs:一个逗号分隔的项目列表
+            replace:规定了装载到窗口的URL是在窗口的浏览器历史中创建一个新条目还是替换
+                浏览器历史中的当前条目
+            true-URL 替换浏览器中的当前条目
+            false-URL 在浏览历史中创建新的条目
+    -->
+    <!-- window.close():关闭当前窗口-->
+
+    <!-- window.moveTo(x,y):移动当前窗口 -->
+    <!-- window.resizeTo():调整当前窗口 -->
+
+
+    
+    
+    <button onclick="openwin()">点击一下</button>
+    <button onclick="closewin()">点击一下</button>
+    <button onclick="movewin()">点击一下</button>
+    <button onclick="resizewin()">点击一下</button>
+    <script>
+        function openwin(){
+            mywindow=window.open('','','width=200,height=100')
+            mywindow.document.write("<p>这是一个新窗口<p>")
+        }
+
+        function closewin(){
+            mywindow.close()
+        }
+        
+        function movewin(){
+            mywindow.moveTo(300,300)
+            mywindow.focus()
+        }
+        function resizewin(){
+            mywindow.resizeTo(400,400)
+            mywindow.focus()
+        }
+    </script>
+
+</body>
+</html>

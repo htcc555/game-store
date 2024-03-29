@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+
+
+body{
+    background: url(https://ts1.cn.mm.bing.net/th/id/R-C.ba657cd49240c78aca1e82c734ad168b?rik=cJ8gW6RUkPFWbQ&riu=http%3a%2f%2fpic.bizhi360.com%2fbbpic%2f28%2f7028.jpg&ehk=4qfMJLa1qZOxGTu519OoGACAwCJ6MYR4ojRSCYSYcyQ%3d&risl=&pid=ImgRaw&r=0) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.daohang {
+    position: fixed;
+    height: 75px;
+    background-color: #303135;
+    overflow: hidden;
+    display: flex;
+}
+.daohang .yxlm{
+    width: 250px;
+    line-height: 75px;
+    background-color: #222223;
+    border-radius: 0 0 250px 0;
+}
+.daohang .yxlm span{
+    font-size: 200px;
+    color: #bd964b
+}
+.daohang .qian{
+    line-height: 75px;
+}
+.daohang .qian span{
+    font-size: 20px;
+    color: #adaeaf;
+    margin-left: 20px;
+}
+.daohang .zhong{
+    line-height: 75px;
+}
+.daohang .zhong span{
+    color: #dadadb;
+    font-size: 20px;
+    margin-right: 40px;
+
+}
+.daohang .zhong a:nth-child(1){
+    margin-left: 140px;
+}
+.daohang .hou {
+    color: #adaeaf;
+    line-height: 75px;
+}
+.daohang .hou span{
+    font-size: 20px;
+    margin-right: 20px;
+}
+.daohang .hou span:nth-child(1){
+    margin-left: 100px;
+}
+.wei{
+    margin-left: 100px;
+    flex: 1;
+    height: 75PX;
+    background-color: #222223;
+    line-height: 75px;
+    border-radius: 0 0 0 200px;
+}
+.wei span{
+    color: #9a9a9a;
+    font-size: 30px;
+    margin-right: 10px;
+}
+.wei span:nth-child(1){
+    margin-left: 80px;
+}
+
+
+
+
+
+
+.daohang2{
+    margin: 0 auto;
+    
+    height: 185px;
+    width: 1250px;
+    background-color: pink;
+}
+
+
+
+
+
+
+
+
+.neirong1{
+    margin: 0 auto;
+   
+    height: 300px;
+    width: 1250px;
+    background-color: blue;
+    margin-bottom: 40px;
+}
+
+
+
+
+
+.neirong2{
+    width: 1250px;
+    height: 350px;
+    /* background-color: pink; */
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+
+
+
+.neirong3{
+    width: 1250px;
+    height: 350px;
+    background-color: blue;
+    margin: 0 auto;
+}

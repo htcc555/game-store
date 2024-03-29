@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4194990 */
+  src: url('iconfont.woff2?t=1691114315129') format('woff2'),
+       url('iconfont.woff?t=1691114315129') format('woff'),
+       url('iconfont.ttf?t=1691114315129') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-yiliaohangyedeICON-:before {
+  content: "\e632";
+}
+
+.icon-shuaxin:before {
+  content: "\e60f";
+}
+
+.icon-xiazai:before {
+  content: "\e600";
+}
+
+.icon-home-g:before {
+  content: "\e646";
+}
+
+.icon-store:before {
+  content: "\e655";
+}
+
+.icon-gengduo-shuxiang:before {
+  content: "\e8c4";
+}
+
+.icon-youxiji:before {
+  content: "\e613";
+}
+
+.icon-qipao:before {
+  content: "\e60c";
+}
+
+.icon-shipin:before {
+  content: "\e61e";
+}
+
+.icon-suoxiao:before {
+  content: "\e63b";
+}
+
+.icon-guanbi:before {
+  content: "\eaf2";
+}
+
+.icon-yingxionglianmeng:before {
+  content: "\e601";
+}
+
+.icon-quanping:before {
+  content: "\e683";
+}
+
+.icon-xiaomi:before {
+  content: "\e661";
+}
+

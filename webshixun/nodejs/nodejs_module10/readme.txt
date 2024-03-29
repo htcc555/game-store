@@ -1,0 +1,1 @@
+npm install multiparty //处理图片

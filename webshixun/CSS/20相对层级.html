@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相对层级z-index</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+
+        }
+        .d1{
+            float: left;/*浮动定位*/
+            z-index: 1400;
+        }
+        .d2{
+            z-index: 1200;
+        }
+        .d3{
+            position: relative;/*相对定位*/
+            bottom: 200px;
+            left: 0;
+            z-index: 1000;
+        }
+        .d4{
+            position: absolute;/*绝对定位*/
+            left: 0;
+            top: 0;
+            z-index: 888;
+        }
+        .d5{
+            position: fixed;/*固定定位*/
+            left: 0;
+            top: 0;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <!-- 显示层级z-index
+        当修改元素定位方式时，会出现元素层叠的问题，通过z-index可以控制元素谁显示上方
+        必须修改定位方式之后，z-index才会生效 z-index越大则显示层级越靠前
+        对静态层和浮动层不生效
+
+    -->
+    <div class="d1" style="background-color:red"></div>
+    <div class="d2" style="background-color:green"></div>
+    <div class="d3" style="background-color:blue"></div>
+    <div class="d4" style="background-color:yellow"></div>
+    <div class="d5" style="background-color:aqua"></div>
+</body>
+</html>

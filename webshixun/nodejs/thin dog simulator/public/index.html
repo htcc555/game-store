@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+    <script src="./js/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+    <form>
+        <input type="text"  v-model="dd.height">
+        <input type="text"  v-model="dd.weight">
+        <button  @click="f1()">提交</button>
+    </form>
+    </div>
+    <script>
+        let v=new Vue({
+            el:'#app',
+            data:{
+                dd:{
+                    weight:' ',
+                    height:' '
+                }
+            },
+            methods:{
+                f1(){
+                    axios.post("/dog",v.dd).then(res=>{
+                        if(res.data=="1"){
+                            alert("细勾")
+                        }
+                        else{
+                            alert("胖勾")
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

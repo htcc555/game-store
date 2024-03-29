@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+
+        }
+        .dm{
+            position: absolute;/*设置绝对定位*/
+            top: 0;
+            right:0;
+        }
+        .d2{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 绝对定位: 通过left/top/right/bottom控制位置
+        特点:可以实现层叠效果,元素是脱离文档流(不占用原来位置),默认以body为参照物,
+        如果想以上级元素为参照物,则在上级元素添加position:relative
+        应用场景:当需要往页面中添加某个元素时,又不影响样本原样式的情况下使用
+    -->
+
+    <div class="d1" style="border: 1px solid red;"></div>
+    <div class="d2"  style="border: 1px solid green;"></div>
+    <div class="d3"  style="border: 1px solid blue;">
+    <div class="dm" style="width: 50px ;height: 50px; border: solid 1px black ;"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <style>
+        body{margin: 0;background-image: url("imgs/bg.jpg");background-size: cover; }
+        #app{text-align: center;}
+        h1{font-size: 72px;color: rgb(0, 150, 215);margin-bottom: 0;}
+        img{width: 100px;}
+        h2{font-size: 32px;color: #0095d7;margin: 0;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>欢迎来到酷鲨商城</h1>
+        <img src="imgs/shark.png" alt="">
+        <h2>CoolSharkMall</h2>
+        <el-card style="width: 600px;height: 300px;
+        margin: 0 auto;background-color: rgba(255,255,255,0.3);">
+            <el-form style="width: 400px;margin: 30px auto;" label-width="60px">
+                <el-form-item label="用户名">
+                    <el-input type="text" v-model="user.username" placeholder="请输入用户名"></el-input>
+                </el-form-item>
+                <el-form-item label="密码">
+                    <el-input type="password" v-model="user.password" placehoder="请输入密码"></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" @click="login()">登录</el-button>
+                </el-form-item>
+            </el-form>
+        </el-card>
+    </div>
+
+    <script>
+        let v = new Vue({
+            el:'#app',
+            data:{
+                user:{
+                    username:'',
+                    password:''
+                }
+            },
+            methods:{
+                login(){
+                    //用axios进行post方式提交数据v.user
+                    //以后只要是表单提交就用post
+                    //get方法多用于拿数据
+                    axios.post("/user/login",v.user).then(res=>{
+                        if(res.data=="1"){
+                            alert("登录成功")
+                            location.host='./login.html'
+                        }
+                        else{
+                            alert("请检查你的用户名和密码")
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

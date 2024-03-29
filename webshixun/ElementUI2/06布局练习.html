@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布局练习</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+</head>
+<body>
+    <div id="app">
+        <el-row :gutter="20">
+            <el-col :span="6">
+                <div style="width: 100%; height: 300px;background-color: aqua;">
+                    <span>这个左边元素</span>
+                </div>
+            </el-col>
+            <el-col :span="12">
+                <div style="width: 100%;height: 300px;background-color: red;">
+                    <span>这个是中间的轮播图</span>
+                </div>
+            </el-col>
+            <el-col :span="6">
+                <div style="width: 100%;height: 300px;background-color: bisque;">
+                    <span>这个是右边的排行榜</span>
+                </div>
+            </el-col>
+        </el-row>
+        <el-row :gutter="20">
+            <el-col :span="18" :offset="6">
+                <div style="width: 100%;height: 300px;background-color: green;">
+                    <span>这个是偏移的元素</span>
+                </div>
+            </el-col>
+        </el-row>
+    </div>
+
+    <script>
+        let v = new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

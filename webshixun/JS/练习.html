@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习</title>
+
+</head>
+<body>
+    <div  style="background-color: green;width: 150px;height: 150px;" id="btn"></div>
+
+    <button class="b1" onclick="f1()">按钮1</button>
+    <button class="b1" onclick="f2()">按钮2</button>
+    <script>
+        var t=0
+        function f1(){
+            if(t==0)
+            {btn.style.backgroundColor="red"
+            t=1
+        }
+            else{
+            btn.style.backgroundColor="green"
+            t=0}
+        }
+        var btn=document.getElementById('btn')
+        var h=btn.innerHTML
+        console.log(h)
+        var s=btn.style.backgroundColor
+        console.log(s)
+        function f2(){
+            if(btn.innerHTML=="")
+            btn.innerHTML="<h1>你好<h1>"
+            else
+            btn.innerHTML=""
+        }
+    </script>
+
+</body>
+</html>

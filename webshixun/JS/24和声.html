@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钢琴</title>
+    <style>
+        ul>li>div{
+            width:70px;
+            height: 300px;
+            /*盒子阴影: 颜色 x偏移 y偏移 浓度 大小 */
+            box-shadow: black 0 0 10px 0;
+        }
+        ul{
+            list-style: none;
+        }
+        ul>li{
+            float: left;
+            width:70px;
+            height: 300px;
+            margin: 2px;
+        }
+        li>div{
+            margin: 2px;
+        }
+        div:active{
+            width: 69px;
+            height: 298px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><div onclick="f(1)"></div></li>
+        <li><div onclick="f(2)"></div></li>
+        <li><div onclick="f(3)"></div></li>
+        <li><div onclick="f(4)"></div></li>
+        <li><div onclick="f(5)"></div></li>
+        <li><div onclick="f(6)"></div></li>
+        <li><div onclick="f(7)"></div></li>
+    </ul> 
+
+    <script>
+        function f(x){
+        //C   D   E   F   G   A   B
+        //135 246 357 461 572 613 724
+            switch(x){
+                case 1:var m1=new Audio('./mp3/myMp新3/h1.mp3');m.play();
+                        var m2=new Audio('./mp3/myMp新3/h3.mp3');m.play();
+                        var m3=new Audio('./mp3/myMp新3/h5.mp3');m.play();
+                        break;
+                case 2:var m1=new Audio('./mp3/myMp新3/h2.mp3');m.play();
+                        var m2=new Audio('./mp3/myMp新3/h3.mp3');m.play();
+                        var m3=new Audio('./mp3/myMp新3/h6.mp3');m.play();break;
+                case 3:var m1=new Audio('./mp3/myMp新3/h3.mp3');m.play();
+                        var m2=new Audio('./mp3/myMp新3/h5.mp3');m.play();
+                        var m3=new Audio('./mp3/myMp新3/h7.mp3');m.play();break;
+                case 4:var m1=new Audio('./mp3/myMp新3/h4.mp3');m.play();
+                        var m2=new Audio('./mp3/myMp新3/h6.mp3');m.play();
+                        var m3=new Audio('./mp3/myMp新3/h1.mp3');m.play();break;
+                case 5:var m1=new Audio('./mp3/myMp新3/h5.mp3');m.play();
+                        var m2=new Audio('./mp3/myMp新3/h7.mp3');m.play();
+                        var m3=new Audio('./mp3/myMp新3/h2.mp3');m.play();break;
+                case 6:var m1=new Audio('./mp3/myMp新3/h6.mp3');m.play();
+                        var m2=new Audio('./mp3/myMp新3/h1.mp3');m.play();
+                        var m3=new Audio('./mp3/myMp新3/h3.mp3');m.play();break;
+                case 7:var m1=new Audio('./mp3/myMp新3/h7.mp3');m.play();
+                        var m2=new Audio('./mp3/myMp新3/h2.mp3');m.play();
+                        var m3=new Audio('./mp3/myMp新3/h4.mp3');m.play();break;
+            }
+        }
+        window.onkeydown=function(event){
+            if(event.keyCode==49)
+            f(1)           
+            else if(event.keyCode==50)
+            f(2)
+            else if(event.keyCode==51)
+            f(3)
+            else if(event.keyCode==52)
+            f(4)
+            else if(event.keyCode==53)
+            f(5)
+            else if(event.keyCode==54)
+            f(6)
+            else if(event.keyCode==55)
+            f(27)
+
+        }
+
+    </script>
+
+</body>
+</html>

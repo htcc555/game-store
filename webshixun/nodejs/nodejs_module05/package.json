@@ -1,0 +1,15 @@
+{
+  "name": "nodejs_module05",
+  "version": "1.0.0",
+  "description": "一 NPM\r     1.node package manager node包管理工具\r         在安装node时会附带安装npm工具,便于安装第三方包在自己项目中使用,可以下载安装,卸载,更新第三方的包",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

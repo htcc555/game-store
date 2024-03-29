@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+</head>
+<body>
+    <div id="app">
+        <el-container>
+            <el-header style="background-color: red;">Header</el-header>
+            <el-main style="background-color: aqua;">Main</el-main>
+          </el-container>
+
+          <el-container>
+            <el-header style="background-color: rebeccapurple;">Header</el-header>
+            <el-container>
+              <el-aside style="background-color: green;" width="400px">Aside</el-aside>
+              <el-main style="background-color: yellow;">Main</el-main>
+            </el-container>
+          </el-container>
+    </div>
+
+    <script>
+        let v = new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

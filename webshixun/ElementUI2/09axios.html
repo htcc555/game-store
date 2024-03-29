@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+    <script src="./js/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 整个界面的宽度 -->
+        <div style="width: 1200px;margin: 0 auto;background-color: aqua;">
+            <!-- 单个英雄的框框 -->
+            <div v-for="item in heroes" style="float:left;
+            width: 220px;height: 360px;
+            margin: 10px 10px 0 0;padding:20px 35px;text-align: center;
+            background-color: rgba(29,29,29,0.3);border-radius: 6px;
+            box-shadow: black 1px 1px 10px -5px; ">
+                <img :src="item.url" width="220" height="220" alt="">
+                <h1>{{item.name}}</h1>
+                <p>{{item.detail}}</p>
+            </div>
+        </div>
+        <button @click="add()">点我一下获取值</button>
+        <h1>当前用户对象姓名为:{{person.name}},住在{{person.adress}}</h1>
+    </div>
+
+    <script>
+        let v = new Vue({
+            el:'#app',
+            data:{
+                heroes:[],
+                person:{}
+            },
+            //创建页面时执行
+            created(){
+                axios.get("./josn/nong.json").then(response=>{
+                    console.log(response.data)
+                    this.heroes = response.data
+                })
+            },
+            methods:{
+                add(){
+                    // 向地址提交请求,得到res返回对象,返回数值为res.data
+                    axios.get("./josn/person.json").then(res=>{
+                        console.log(res.data)
+                        this.person = res.data
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

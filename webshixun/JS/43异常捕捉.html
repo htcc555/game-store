@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>异常捕捉</title>
+</head>
+<body>
+    <!-- 异常捕捉:
+        ES3开始引入了try-catch,时JavaScript中处理异常的标注方式
+
+    
+    -->
+    <script>
+        /* 语法格式:
+            try{
+                可能发生异常的代码
+            }
+            catch(error){
+                发生错误执行的代码
+            }
+            finall{
+                无论是否出错都会执行的代码
+            }
+        */ 
+        
+        //如果添加了finally语句,则catch语句可以省略,
+        //但是如果没有catch语句,则一旦发生错误就无法捕捉这个错误
+        //所以在执行完finally中的语句后,程序会立即停止,所以在实际使用中最好一直带着catch语句
+        //则finally语句也是可以省略的
+        try{
+            console.log(a)
+            console.log("a未定义肯定会报错")
+        }
+        catch(error)
+        {
+            console.log("报错了,执行catch")
+        }
+        finally{
+            console.log("无论都执行finall")
+        }
+    </script>
+</body>
+</html>

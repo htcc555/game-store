@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+    <script src="./js/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <el-menu :default-active="index" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+            <el-menu-item index="1">首页</el-menu-item>
+            <el-submenu index="2">
+                <template slot="title">资讯</template>
+                <el-menu-item index="2-1">新闻</el-menu-item>
+                <el-menu-item index="2-2">公告</el-menu-item>
+            </el-submenu>
+            <el-submenu index="3">
+                <template slot="title">招聘</template>
+                <el-menu-item index="3-1">校招</el-menu-item>
+                <el-menu-item index="3-2">社招</el-menu-item>
+            </el-submenu>
+            <el-submenu index="4">
+                <template slot="title">校园</template>
+                <el-menu-item index="4-1">食堂</el-menu-item>
+                <el-menu-item index="4-2">宿舍</el-menu-item>
+                <el-menu-item index="4-3">教室</el-menu-item>
+            </el-submenu>
+        </el-menu>
+
+        <div v-show="index=='1'">
+            <h1>我是首页</h1>
+        </div>
+        <div v-show="index=='2-1'">
+            <h1>我是新闻页面</h1>
+        </div >
+        <div v-show="index=='2-2'">
+            <h1>我是公告页面</h1>
+        </div>
+        <div v-show="index=='3-2'">
+            <h1>我是社招页面</h1>
+        </div>
+        <div v-show="index=='3-1'">
+            <h1>我是校招页面</h1>
+        </div>
+        <div v-show="index=='4-1'">
+            <h1>我是食堂页面</h1>
+        </div>
+        <div v-show="index=='4-3'">
+            <h1>我是教室页面</h1>
+        </div>
+        <div v-show="index=='4-2'">
+            <h1>我是宿舍页面</h1>
+        </div>
+    </div>
+
+    <script>
+        let v = new Vue({
+            el:'#app',
+            data:{
+                index:'1'
+            },
+            methods:{
+                handleSelect(index) {
+                    //将选择的index赋值给data中的index
+                    this.index = index
+                }
+            }
+        })
+    </script>
+</body>
+</html>

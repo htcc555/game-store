@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改HTML元素</title>
+</head>
+<body>
+    <script>
+        /* 方法:
+        document.createElement(element)创建HTML元素节点
+        document.createAttribute(attribute)创建HTML属性节点
+        document.createText(text)创建HTML文本节点
+
+
+        元素节点.removeChild(element)删除HTML元素
+        元素节点.appendChild(element)添加HTML元素
+        元素节点.replaceChild(element)替换HTML元素
+        元素节点.insertBefore(element)在指定的子节点前面插入新的子节点
+
+        
+        */
+        //创建HTML元素节点 document.createElement(element)
+        var ul=document.createElement("ul")
+        var li1=document.createElement("li")
+        //创建HTML文本节点 document.createTextNode(text)
+        var text=document.createTextNode("列表项1")
+        //添加HTML元素 元素节点.appenChild(element)
+        li1.appendChild(text)
+        ul.appendChild(li1)
+        document.getElementsByTagName("body")[0].appendChild(ul)
+        //需求1 创建一个ul列表,然后在该列表中追加四个li标签
+        //需求2 创建一个ul列表,里面有四个li子元素,删除第一个li,替换最后一个li
+        //需求3 创建一个ul列表,里面有四个li子元素,在第一个前面插入一个id为zero的li
+    </script>
+</body>
+</html>

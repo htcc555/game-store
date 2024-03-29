@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定定位</title>
+    <style>
+        .d1{
+            width: 200px;
+            height: 200px;
+            border: 1px red solid;
+        }
+        img{
+            width: 110px;
+            position:fixed;
+            top :20px;
+            left:10px;
+        }
+        a{
+            position:fixed;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 固定定位：top/right/bottom/left
+        特点：元素固定在窗口的某个位置，元素脱离文档流
+        应用场景：当需要将元素固定在某个窗口时使用
+     -->
+    <div class="d1"></div>
+    <div class="d1"></div>
+    <div class="d1"></div>
+    <div class="d1"></div>
+    <div class="d1"></div>
+    <div class="d1"></div>
+    <div class="d1"></div>
+    <img src="../img/2.jpg" alt="">
+    <a href="#top">回到顶部</a>
+</body>
+</html>

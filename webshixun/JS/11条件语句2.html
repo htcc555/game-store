@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch</title>
+</head>
+<body>
+    <!-- switch 
+        switch..case是另一种流程控制语句
+        switch语句更适合用于多条分支使用同一条语句的情况
+    
+        但是使用时一旦符合case条件,程序会一直执行到结束
+        所以一般通过case中添加break作为语句结束
+    -->
+    <script>
+        var 装备='木斧子'
+        switch(装备)
+        {
+            case "金斧子":alert('怒'); break;
+            case "银斧子":alert('你惨了'); break;
+            case "木斧子":alert('你真是个老实人'); break;
+            default:alert("真的假的"); break;
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <!-- JSON:JavaScript Object Notation(JavaScript对象标记法),是一种存储和交换数据语法 
+        当数据在浏览器与服务器之间进行交换时,这些数据只能是文本JSON属于文本
+        我们能够将任何JavaScript对象转化为JSON,然后将JSON发送到服务器
+        我们也能把服务器接收到的JSON转化为JavaScript对象
+        以这样的方式,我们能够把数据作为JavaScript对象来处理,无需复杂的解析和转换    
+    
+    -->
+    <!-- 
+        JSON语法:在JSON,每个数据项,都是由一个键值对组成的,但是键必须是字符串,且由双引号包围
+        而且值一定是:
+            字符串,数字,对象,数组,布尔,null
+        不能是:
+            函数,日期,undefined
+     -->
+    <script>
+        //HTML+CSS+JavaScript
+        //了解JSON数据格式和Ajax传输,http,https,tcp
+        //组件:Echars Bootstrapt ElementUI
+        //语言:nodejs Typescrip
+        //框架:Vue React
+        //移动端:uni-app 微信小程序 抖音小程序
+
+
+        var person = {"name":"张三","age":"18","city":"重庆"}
+        console.log(person)
+
+        //JS对象转JSON字符串
+        var obj={name:"穿山甲",age:40,city:"重庆"}
+        var jsonStr=JSON.stringify(obj)
+        console.log(jsonStr)
+
+        //JSON字符串转JS对象
+        var jsonStr2='{"name":"张三","age":"18","city":"重庆"}'
+        console.log(jsonStr2)
+        var obj2=JSON.parse(jsonStr2)
+        console.log(obj2)
+    </script>
+</body>
+</html>

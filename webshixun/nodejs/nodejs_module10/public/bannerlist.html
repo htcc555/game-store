@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+    <script src="./js/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>轮播图管理页面</h1>
+        <a href="/bannerSend.html">bannerSend</a>
+        <template>
+            <!-- :data遍历bannerArr数组,将数据显示在表格中 -->
+            <el-table
+              :data="bannerArr"
+              style="width: 100%">
+              <el-table-column
+                type="index"
+                label="轮播图序号"
+                width="180">
+              </el-table-column>
+              <el-table-column
+                prop="id"
+                label="轮播图id"
+                width="180">
+              </el-table-column>
+              <el-table-column
+                label="轮播图"
+                width="240">
+                <template slot-scope="scope">
+                    <img :src="scope.row.url" width="200px" alt="">
+                </template>
+              </el-table-column>
+              <el-table-column
+                label="操作">
+                <!-- scope里面装着遍历对象,scope.row得到当前的遍历对象 -->
+              <template slot-scope="scope">
+                <!-- 气泡圈组件 -->
+                <el-popconfirm title="您确定删除此轮播图吗?" @confirm="del(scope.$index,scope.row)">
+                    <el-button size="mini" type="danger" slot="reference">删除</el-button>
+                </el-popconfirm>  
+              </template>
+              </el-table-column>
+            </el-table>
+          </template>
+    </div>
+
+    <script>
+        let v = new Vue({
+            el:'#app',
+            data:{
+                bannerArr:[]
+            },
+            methods:{
+                //根据id删除轮播图
+                del(index,banner){
+                    console.log(banner.url)
+                    axios.get('/banner/del?url='+banner.url).then(res=>{
+                            
+                        })
+                        location.reload();
+                      }
+                },              
+            created:function(){
+                        //get方法向后台接口请求数据,将得到的值赋给data中的bannerArr
+                        axios.get("/banner/list").then(res=>{
+                            v.bannerArr=res.data
+                        })
+                    }  
+        })
+    </script>
+</body>
+</html>

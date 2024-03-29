@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+</head>
+<body>
+    <!--表单事件:在html表单中触发(适用于所有html元素,但改html元素需在form中) 
+        onblur:当元素失去焦点时运行脚本
+        onfocus:当元素获取焦点时运行脚本
+        onchange:当元素改变时运行脚本
+        oninput:当元素获得用户输入时运行脚本
+        oninvalid:当元素无效时运行脚本
+        onselect:当选取元素时运行脚本
+        onsubmit:当提交表单时运行脚本
+     -->
+
+     <input   type="text"  id="text">
+     <script>
+        //当文本获取焦点时,文本框背景为红色,失去焦点,背景为黄色
+        var textInput=document.getElementById("text")
+
+        textInput.onfocus=function()
+        {
+            textInput.style.backgroundColor="red"
+        }
+
+        textInput.onblur=function()
+        {
+            textInput.style.backgroundColor="green"
+        }
+
+
+     </script>
+     
+</body>
+</html>

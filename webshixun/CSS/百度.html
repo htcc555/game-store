@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度一下,你就知道</title>
+    <style>
+        .input1
+        {
+            height: 39px;
+            width: 550px;
+            border:2px solid #c4c7ce;
+            /* 取消点击后的边框 */
+            outline: none;
+            border-radius: 10px 0 0 10px;
+        }
+        .input1:hover {
+            border-color: #a7aab5;
+        }
+        .input1:focus{/*针对input点击*/
+            border-color: #4e6ef2;
+        }
+        .btn1{
+            width: 108px;
+            height: 44px;
+            border: none;
+            background-color: #4e6ef2;
+            color: white;
+            font-size: 17px;
+            border-radius: 0 10px 10px 0;
+            position: relative;
+            left:-5px;
+            top:2px;
+        }
+        .btn1:hover{
+            background-color: #4662d9;
+        
+        }
+        .search{
+            width: 670px;
+            height: 44px;
+            margin: 200px auto 0;
+            position: relative;/*将上级div作为绝对定位的参照物*/
+        }
+        img{
+            width: 40px;
+            position :absolute;/*设置绝对路径*/
+            right :120px;/* 距离右边120px */
+            top: 10px;/*距离上边10px*/
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+    <input type="text" class="input1">   
+    <button class="btn1">百度一下</button>
+    <img src="../img/7.png" alt="">
+    </div> 
+</body>
+</html>

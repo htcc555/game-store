@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布局</title>
+    <style>
+        body{
+            font: 12px "simhei", Arial, Helvetica, sans-serif;
+            color: #666;
+        }
+        body>div{
+            width: 1000px;
+            margin: 0 auto;/*内容整体居中*/
+            background-color: #0aaeed;
+        }
+        #t_div>div,#b_l_div,#b_r_div>div{
+            background-color: #e8e8e8;
+        }
+        #t_l_div{
+            float: left;
+            width: 611px;
+            height: 376px;
+            position: relative;
+        }
+        #t_r_div{
+            float: right;
+            width: 375px;
+            height: 376px;
+        }
+        #t_div{
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        #b_l_div
+        {   float: left;
+            width: 366px;
+            height: 233px;
+        }
+        #b_r_div{
+            float: right;
+
+        }
+        #b_div{
+            overflow: hidden;
+        }
+        #b_r_div>div{
+            width: 198px; 
+            height: 233px;
+            float: right;
+            margin-left: 10px;
+
+        }
+        /* 左上相关样式 */
+        #t_l_div>div{
+            width: 245px;
+            height: 232px;
+            margin: 68px 0 0 36px;
+        }
+        .title_p{
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 32px;
+        }
+        .price_p{
+            font-size: 24px;
+            color:#0aa1ed;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        #t_l_div>div>a{
+            display: block;
+            width: 132px;
+            height: 40px;
+            background-color: #0aa1ed;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+        #t_l_div>img{
+            width: 318px;
+            height: 319px;
+            position: absolute;
+            right:20px;
+            bottom: 20px;
+            transition-duration: 1.25s;
+        }
+        #t_l_div>img:hover{
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="t_div">
+            <div id="t_l_div">
+                <div>
+                    <p class="title_p">灵越 燃7000系列</p>
+                    <p >酷睿双核i5处理器|256GB SSD| 8GB内存
+                        <br>英特尔HD显卡620含共享显卡内存</p>
+                    <p class="price_p">￥4999.00</p>
+                    <a href="">查看详情</a>
+                </div>
+                <img src="http://doc.vrd.net.cn/tstore_v1/images/itemCat/study_computer_img1.png" alt="">
+            </div>
+            <div id="t_r_div">
+
+            </div>
+        </div>
+        <div id="b_div">
+            <div id="lb_l_div"></div>
+            <div id="b_r_div">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

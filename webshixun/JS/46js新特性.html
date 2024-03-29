@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMAScript6</title>
+</head>
+<body>
+    <!-- let关键字,用来申明变量:
+        1.不允许重复声明
+        2.块级作用域
+        3.不存在变量提示   
+        4.不影响作用域链
+    注意: 以后声明变量用let就对了
+    -->
+    <!--const 关键字用来声明常量
+        1.不允许重复声明
+        2.块级作用域
+        3.声明必须赋初值
+        4.值不允许修改
+        5.标识符一般为大写 
+    注意:声明对象类型使用const,非对象类型声明选择let
+
+     -->
+
+    <!-- 
+        模板字符串,是增强版的字符串,用反引号 ` 标识
+        1.字符串可以出现换行符
+        2.可以使用${xxx}形式输出变量
+     -->
+
+     <!-- 
+        简化对象写法
+        ES6允许在大括号里面,直接写入变量和函数,作为对象的属性和方法,这样书写更加简洁
+      -->
+
+    <!-- 箭头函数 ES6允许使用箭头=> 定义函数 -->
+
+    <script>
+        // function f1(){
+        //     let i=1
+        // }
+        // let str=` 
+        //         你 好
+        //         世 界
+        //         张三
+        //         李四
+        // `
+        // console.log(str)
+
+        // //变量拼接
+        // let name="大帅哥,小美女"
+        // let result=`
+        //         欢迎${name}访问页面
+        // ` 
+        // console.log(result)
+
+        // let f=function(){
+        //     console.log("我是一个方法")
+        // }
+
+        //省略function写法    
+        let f = ()=>{
+            console.log("我是一个方法")
+        }
+
+        // let f2=function(num){
+        //     console.log("num")
+        // }
+
+        //如果形参只有一个,则小括号可以省略
+        //当函数体只有一条语句,则花括号可以省略,函数的返回值为该条语句的执行结果
+        let f2 = num => console.log("num")
+        
+
+
+        function f1(){
+            setTimeout(function(){
+                console.log("我等了三秒钟")
+            },3000)
+        }
+
+        let name='张三'
+        let age=14
+        let speak=function(){
+            console.log(this.name)
+        }
+
+        let person={
+            name,
+            age,
+            address:"123",
+            speak
+        }
+
+    </script>
+</body>
+</html>

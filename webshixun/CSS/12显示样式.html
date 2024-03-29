@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示样式</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+        }
+        .d1{
+            background-color: red;
+        }
+        .d2{
+            background-color: blue;
+        }
+        .s1{
+            background-color:yellow;
+            width: 100px;
+            height: 100px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 块元素 :独占一行,可以设置宽高,h1-h6,div,p  -->
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <!-- 行内元素 :共占一行,但不能设置宽高,span,b,i,s-->
+    <span class="s1">niha</span>
+    <!-- 行内块元素 :共占一行,可以设置宽高,input,img,button -->
+    <!-- 如果需要更改元素样式,可以用display设置
+    block/inline/inline-block:块/行内/行内块元素 -->
+</body>
+</html>

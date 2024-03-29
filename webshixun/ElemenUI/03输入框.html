@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输入框</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+</head>
+<body>
+    <div id="app">
+        <el-input v-model="input" placeholder="请输入内容"></el-input>
+    </div>
+    <script>
+        let v=new Vue({
+            el:'#app',
+            data:{
+                input:' '
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

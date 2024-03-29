@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理页面</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+    <script src="./js/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>用户管理页面</h1>
+        <template>
+            <!-- :data遍历userArr数组,将数据显示在表格中 -->
+            <el-table
+              :data="userArr"
+              style="width: 100%">
+              <el-table-column
+                type="index"
+                label="用户序号"
+                width="180">
+              </el-table-column>
+              <el-table-column
+                prop="id"
+                label="用户id"
+                width="180">
+              </el-table-column>
+              <el-table-column
+                prop="username"
+                label="用户名"
+                width="180">
+              </el-table-column>
+              <el-table-column
+                prop="password"
+                label="密码">
+              </el-table-column>
+              <el-table-column
+                label="操作">
+                <!-- scope里面装着遍历对象,scope.row得到当前的遍历对象 -->
+              <template slot-scope="scope">
+                <!-- 气泡圈组件 -->
+                <el-popconfirm title="您确定修改此用户吗?" @confirm="update(scope.$index,scope.row)">
+                    <el-button size="mini" type="primary" slot="reference">修改</el-button>
+                </el-popconfirm>
+                <el-popconfirm title="您确定删除此用户吗?" @confirm="del(scope.$index,scope.row)">
+                    <el-button size="mini" type="danger" slot="reference">删除</el-button>
+                </el-popconfirm>  
+              </template>
+              </el-table-column>
+            </el-table>
+          </template>
+    </div>
+
+    <script>
+        let v = new Vue({
+            el:'#app',
+            data:{
+                userArr:[]
+            },
+            methods:{
+                //根据id删除用户
+                del(index,user){
+                    axios.get(`/user/del?id=${user.id}`).then(res=>{
+                            
+                        })
+                        location.reload();
+                },
+                //根据id值跳转到修改页面
+                update(index,user){
+                    location.href="/userUpdate.html?id="+user.id
+                }
+            },
+            created:function(){
+                        //get方法向后台接口请求数据,将得到的值赋给data中的userArr
+                        axios.get("/user/list").then(res=>{
+                            v.userArr=res.data
+                        })
+                    }  
+        })
+    </script>
+</body>
+</html>

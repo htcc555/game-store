@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时事件</title>
+</head>
+<body>
+    <!--定时时间(Timing Event) JavaScript可以在时间间隔内执行 -->
+    <!--等待指定毫秒数后执行函数 
+        setTimeout(function,milliseconds) -->
+    <!--等同于setTimeout,但是会重复执行 
+        setInterval(function,milliseconds) -->
+        <button id="btn">你这瓜保熟吗</button>
+        <button id="btn2">你这瓜皮</button>
+    <script>
+        //单机按钮,等待三秒,然后提示框输出"鸡毙你"
+        var btn=document.getElementById("btn")
+        var btn2=document.getElementById("btn2")
+        btn.onclick=function(){
+            var time=setTimeout(function(){
+                alert("鸡毙你")
+            },3000)
+        }
+        btn2.onclick=function(){
+            var time=setInterval(function(){
+                alert("金子")
+            },3000)
+        }
+    </script>
+
+</body>
+</html>

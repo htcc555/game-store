@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <!-- 1.设计一个购物车数量加减,两个按钮,当点击-数字-1,当点击+的时候数字+1 -->
+    <!-- 2.设计一个图片查看器,默认显示第一张图片,点击上一张和下一张进行图片切换 -->
+    <!-- 3.完成一个木鱼,不能用伪类选择器,可以进行切换声音 -->
+    <!-- 4.用vue书写一个钢琴,鼠标点击播放 -->
+    <div id="app">
+        <h1>购物车</h1>
+        <div>
+            <button @click="i--">-</button>
+            <span>{{i}}</span>
+            <button @click="i++">+</button>
+        </div>
+        <h1>图片查看器</h1>
+        <button @click="f1()">上一张</button>
+        <div style="width: 300px;height: 300px;overflow: hidden;display:inline-block;">
+            <img :src="urls[u]" width="300px" alt="">
+        </div>
+        <button @click="f2()">下一张</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                i:1,
+                u:0,
+                urls:["./imgs/1.png","./imgs/2.png","./imgs/3.png","./imgs/4.png",]
+            },
+            methods:{
+                f1(){
+                    if(this.u<=0){
+                        alert("没有上一张辣!!!")
+                    }else{
+                        this.u--
+                    }
+                },
+                f2(){
+                    if(this.u>=this.urls.length-1){
+                        alert("没有下一张辣!!!")
+                    }else{
+                        this.u++
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遍历</title>
+</head>
+<body>
+    <script>
+    let arr=[1,2,3,4,5,6,7]
+    let person={name:"张三",age:12,address:"重庆"}
+    for(i=0;i<arr.length;i++)
+    console.log(arr[i])
+    
+    for(let item in person)
+    console.log("person中的"+item+"为:"+person[item])
+
+    for(let item of arr)
+    console.log(item)
+    </script>
+</body>
+</html>

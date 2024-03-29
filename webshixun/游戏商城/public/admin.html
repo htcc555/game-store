@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员页面</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+    <script src="./js/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h3>皮肤库操作</h3>
+        <el-button type="info" plain><a href="./sendskin.html">点击添加皮肤</a></el-button>
+        <el-button type="info" plain><a href="./index.html">点击返回主页</a></el-button>
+        <template>
+            <el-table :data="tableData" border style="width: 1392px">
+                <el-table-column fixed prop="id" label="id" width="150">
+                </el-table-column>
+                <el-table-column prop="name" label="皮肤名" width="120">
+                </el-table-column>
+                <el-table-column prop="quality" label="品质" width="120">
+                </el-table-column>
+                <el-table-column prop="price" label="价格" width="120">
+                </el-table-column>
+                <el-table-column prop="old_price" label="老价格" width="120">
+                </el-table-column>
+                <el-table-column prop="url" label="存放路径" width="300">
+                </el-table-column>
+                <el-table-column prop="sale" label="已售" width="120">
+                </el-table-column>
+                <el-table-column label="皮肤图" width="110">
+                    <template slot-scope="scope">
+                        <img :src="scope.row.url.replace('\\',':').split(':')[1]" height="100px" alt="">
+                    </template>
+                </el-table-column>
+                <el-table-column label="操作" width="150">
+                    <template slot-scope="scope">
+                        <el-button @click="del(scope.row)" type="text" size="small">删除</el-button>                    
+                        <el-button type="text" @click="alt(scope.row)" size="small">修改价格</el-button>
+                        <el-button type="text" @click="disct(scope.row)" size="small">打折销售</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+        </template>
+    </div>
+
+    <script>
+        let v = new Vue({
+            el: '#app',
+            data: {
+                tableData: []
+            },
+            methods: {
+                del(row) {
+                    console.log(row)
+                    axios.post("/skinbase/dele", row).then(res => { })
+                    location.reload()
+                },
+                alt(row) {
+                    this.$prompt('修改后的价格', '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+
+                    }).then(({ value }) => {
+                        row.old_price = row.price
+                        row.price = value
+                    }).catch(() => {
+                        this.$message({
+                            type: 'info',
+                            message: '取消输入'
+                        });
+                    });
+                    axios.post("/skinbase/alt", row).then(res => { })
+                },
+                
+                disct(row){
+                    axios.post("/skinbase/disct", row).then(res => { })
+                }
+
+
+            },
+            created: function () {
+                axios.post("/skinbase/req_skinbase").then(res => {
+                    v.tableData = res.data
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

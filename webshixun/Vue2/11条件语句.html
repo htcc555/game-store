@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-if,当值为true则正常显示,为false则不显示 
+            v-if是直接从document删除了,v-if消耗更大,如果需要频繁显示的元素则用v-show
+            v-if可以和v-else一起使用,当v-if值为true时显示v-if内容,反之则显示v-else内容
+        -->
+        <img  v-if="age>=18" src="../img/1.jpg" width="200" alt="">
+
+        <!-- 在登陆以后显示的内容 -->
+        <div v-if="isLogin">
+            <h1>欢迎回来</h1>
+            <button>个人信息</button>
+            <button @click="isLogin=false">退出登录</button>
+        </div>
+        <!-- 如果未登录显示的内容 -->
+        <div v-else>
+            <button>注册</button>
+            <button @click="isLogin=true">登录</button>
+        </div>
+        
+    </div>
+    <script>
+        let v=new Vue({
+            el:'#app',
+            data:{
+                age:18,
+                isLogin:false,
+            },
+            methods:{}
+
+
+
+        })
+    </script>
+</body>
+</html>

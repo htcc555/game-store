@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动定位</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+
+        }
+        .d2{
+            float:left;
+        }
+        .d3{
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <!-- 浮动定位：margin来进行位置定位
+        特点：元素会脱离文档流。从当前所在行向向左向右浮动，当撞到上级元素或其他浮动元素时停止
+        浮动元素一行装不下时，会自动换行 -->
+    <div class="d1" style="background-color:red"></div>
+    <div class="d2" style="background-color:green"></div>
+    <div class="d3" style="background-color:blue"></div>
+    <div class="d4" style="background-color:yellow"></div>
+</body>
+</html>

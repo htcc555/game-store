@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习3</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        body{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <h2 style="color: white;">现在播放的是{{this.urls[this.i].name}}</h2>
+        <button @click="f2()">上一首</button>
+        <button @click="f3()">下一首</button>
+    <img @mousedown="f1()" @mouseup="w=390" src="../img/5.png":width="w" alt="">
+    </div>
+    <script>
+        new Vue({
+            el:'.app',
+            data:{
+                i:0,
+                w:390,
+                urls:[{id:1,url:"../JS/mp3/木鱼.mp3",name:"木鱼"},
+                {id:2,url:"../JS/mp3/木鱼2.mp3",name:"木鱼2"}]
+            },
+            methods:{
+              f1(){
+                this.w=400
+                let m=new Audio(this.urls[this.i].url);
+                m.play()
+              },
+              f2(){
+                if(this.i>0)
+                this.i=this.i-1
+              },
+              f3(){
+                if(this.i<1)
+                this.i=this.i+1
+              },
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习3</title>
+</head>
+<body>
+    <script>
+        var u1=document.createElement("ul")
+        // var li1=document.createElement("li")
+        // li1.innerHTML="列表1"
+        // u1.appendChild(li1)
+
+        var li1="<li>列表1</li>"
+        var li2="<li>列表2</li>"
+        var li3="<li>列表3</li>"
+        var li4="<li>列表4</li>"
+
+        u1.innerHTML=li1+li2+li3+li4
+        document.getElementsByTagName("body")[0].appendChild(u1)
+
+
+    </script>
+</body>
+</html>

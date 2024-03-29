@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面</title>
+</head>
+
+<body>
+    <h3>注册页面</h3>
+    <div id="login-box">
+        <!-- 使用ajax手动提交数据,不需要使用表单,但仍需借助表单控件实现交互 -->
+        <!-- ajax手动拼接数据,因此表单控件name属性非必填 -->
+        <p>账号:<input type="text" onblur="validateUname()" id="uname"><span id="unameMsg"></span></p>
+        <p>密码:<input type="password" onblur="validateUpwd()" id="upwd"><span id="upwdMsg"></span></p>
+        <button onclick="loginFn()">注册</button>
+    </div>
+
+    <script>
+        //根据id属性值获取表单元素
+        var unameElem = document.getElementById("uname");
+        var upwdElem = document.getElementById("upwd");
+        //获取span元素
+        var unameMsg = document.getElementById("unameMsg");
+        var upwdMsg = document.getElementById("upwdMsg");
+        //定义状态标记,如果输入框内容不合法,禁止提交
+        var unameFlag = false;
+        var upwdFlag = false;
+        //表单元素失去焦点时,校验是否为空,对用户名
+        function validateUname(){
+            if(unameElem.value == ""){
+                unameMsg.innerHTML = "用户名不能为空";
+                unameMsg.style.color = "red";
+                unameFlag = false
+            }else{
+                unameMsg.innerHTML = "用户名合法";
+                unameMsg.style.color = "green";
+                unameFlag = true
+            }
+        }
+        //表单元素失去焦点时,校验是否为空,对密码
+        function validateUpwd(){
+            if(upwdElem.value == ""){
+                upwdMsg.innerHTML = "密码不能为空";
+                upwdMsg.style.color = "red";
+                upwdFlag = false
+            }else{
+                upwdMsg.innerHTML = "密码合法";
+                upwdMsg.style.color = "green";
+                upwdFlag = true
+            }
+        }
+        function loginFn(method) {
+            if(!unameFlag || !upwdFlag){
+                alert("请检查用户名和密码后提交!")
+                return;
+            }
+            //获取表单控件的值
+            var uname = unameElem.value;
+            var upwd = upwdElem.value;
+            //使用Ajax发请求
+            //1.创建请求对象
+            var xhr = new XMLHttpRequest();
+            //2.监听对象状态的改变,xhr.readyState属性会返回0,1,2,3,4,代表不同状态,4代表服务器端响应数据下载完毕
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    //xhr.responseText服务器返回的值
+                    var data = xhr.responseText
+                    if (data == "1") {
+                        alert("注册成功!")
+                        location.href = "/login.html"
+                    } else if (data == "2") {
+                        alert("用户名重复了!")
+                    } else {
+                        alert("请检查用户和密码输入")
+                    }
+                }
+            }
+            //3.初始化请求open(methods,url,async)最后一个参数默认为true,代表异步请求
+            xhr.open("post", "/register");
+            var params = `username=${uname}&upwd=${upwd}`;
+            //post请求将在请求体中携带
+            xhr.send(params);
+        }
+    </script>
+</body>
+
+</html>

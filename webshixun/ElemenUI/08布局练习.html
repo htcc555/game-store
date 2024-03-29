@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+</head>
+<body>
+    <div id="app">
+        <el-container>
+            <el-header style="background-color: aquamarine; margin: 5px;">Header</el-header>
+            <el-main style="background-color: aquamarine;margin: 5px; height: 400px;">
+                <el-container>
+                    <el-aside width="200px" style="background-color: white;height: 350px;margin: 5px;">Aside</el-aside>
+                    <el-main style="background-color: white;height: 350px;margin: 5px;">
+                        <el-container>
+                            <el-header style="background-color: red;height: 30px;">Header</el-header>
+                            <el-main>
+                                <el-container  style="background-color: blue;" >
+                                    <el-aside width="100px" style="background-color: red;margin: 3px; height: 200px;">Aside</el-aside>
+                                    <el-main style="background-color: red;margin: 3px; height: 200px;">Main</el-main>
+                                    <el-aside width="100px" style="background-color: red;margin: 3px; height: 200px;">Aside</el-aside>
+                                  </el-container>
+                            </el-main>
+                            <el-footer style="background-color: red; height: 30px;">Footer</el-footer>
+                          </el-container>
+                    </el-main>
+                  </el-container>
+            
+            </el-main>
+            <el-footer style="background-color: aquamarine;margin: 5px;">Footer</el-footer>
+        </el-container>
+    </div>
+    <script>
+        let k=new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

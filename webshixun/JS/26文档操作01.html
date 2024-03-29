@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档操作</title>
+</head>
+<body>
+    <!-- 文档对象代表你的网页,如果你希望访问html页面中的任何元素,从访问Document对象开始 -->
+    <!-- 查找HTML元素 -->
+    <button id="btn1" class="cbtn">你好</button>
+    <ul class="list1">
+        <li>茶叶蛋</li>
+        <li>西北风</li>
+        <li>手抓饼</li>
+    </ul>
+    <script>
+        //通过元素id查找元素
+        var btn1=document.getElementById('btn1')
+        console.log(btn1)
+        //通过标签名查找元素
+        var btn2=document.getElementsByTagName("button")
+        console.log(btn2)
+        //通过类名查找元素
+        var btn3=document.getElementsByClassName("cbtn")
+        console.log(btn3)
+        //通过选择器来查找元素
+        var btn4=document.querySelector("button")//标签
+        console.log(btn4)
+        var btn5=document.querySelector(".cbtn")//类
+        console.log(btn5)
+        var btn6=document.querySelector('#btn1')//id
+        console.log(btn6)
+        //通过CSS选择器选择多个元素
+        var list=document.querySelectorAll(".list1 li")
+        console.log(list)
+    </script>
+</body>
+</html>

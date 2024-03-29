@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象基础</title>
+</head>
+<body>
+    <!-- Object类型,也称为一个对象,是JavaScript引用数据类型,是一种复合值
+        将很多值聚合到一起,可以通过名字访问这些值,无序集合,每个属性都是一个名/值对.
+        对象除了可以创建自有属性,还可以通过从一个名为原型的对象继承属性.
+        除了字符串,数字,true,false,null和undefined之外,JavaScript中值都是对象
+     -->
+     
+     <script>
+        //创建对象
+        var person=new Object()
+        person.name='刘备';
+        person.age=18;
+        console.log(person)
+
+        //键:属性名称 值:属性值 对
+        var person2={name:"张飞",age:17}
+        console.log(person2)
+        //访问对象
+        console.log("person对象的name是:"+person.name)
+        console.log("person对象的age是:"+person['age'])
+        //删除属性
+        delete person2.age;
+        console.log(person2)
+        //遍历对象
+        for(var i in person)
+        {
+            var w=person[i]
+            console.log(i+":"+w)
+        }
+        //修改对象
+        person.name='汉昭烈帝'
+        console.log(person.name)
+     </script>
+
+
+</body>
+</html>

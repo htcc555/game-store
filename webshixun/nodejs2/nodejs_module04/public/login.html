@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <!-- 引入封装好的Ajax,可以直接调用方法提交数据 -->
+    <script src="./js/util.js"></script>
+</head>
+<body>
+    <!-- 登录表单:以GET方式提交数据到/login接口 -->
+    <form action="/login" method="get">
+        <p>账号:<input type="text" name="username"></p>
+        <p>密码:<input type="password" name="upwd"></p>
+        <input type="submit" value="get提交">
+    </form>
+    <!-- 以POST方式提交都/login接口 -->
+    <form action="/login" method="post">
+        <p>账号:<input type="text" name="username"></p>
+        <p>密码:<input type="password" name="upwd"></p>
+        <input type="submit" value="post提交">
+    </form>
+    <hr>
+    <h3>Ajax提交</h3>
+    <div id="tip-title"></div>
+    <div id="login-box">
+        <!-- 使用ajax手动提交数据,不需要使用表单,但仍需借助表单控件实现交互 -->
+        <!-- ajax手动拼接数据,因此表单控件name属性非必填 -->
+        <p>账号:<input type="text" id="uname"></p>
+        <p>密码:<input type="password" id="upwd"></p>
+        <button onclick="loginFn('get')">GET登录</button>
+        <button onclick="loginFn('post')">POST登录</button>
+    </div>
+
+    <script>
+        function loginFn(method){
+            //根据id属性值获取元素
+            var unameElem = document.getElementById("uname");
+            var upwdElem = document.getElementById("upwd");
+            var tipTitle = document.getElementById("tip-title");
+            //获取表单控件的值
+            var uname = unameElem.value;
+            var upwd = upwdElem.value;
+            if(method == "get"){
+                sendRequest("get",`/login?username=${uname}&upwd=${upwd}`);
+            }
+            
+
+        }
+    </script>
+</body>
+</html>

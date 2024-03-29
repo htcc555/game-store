@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <link rel="stylesheet" href="./css/eui.css">
+    <script src="./js/eui.js"></script>
+    <script src="./js/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>商品图片上传页面</h1>
+        <!-- action提交位置,limit图片限制,success相传后调用的方法,exceed超出范围调用方法 -->
+        <el-upload action="/upload"
+            limit=1
+            name="picFile"
+            list-type="picture-card"
+            :on-preview="handlePictureCardPreview" 
+            :on-remove="handleRemove"
+            :on-success="uploadSuccess"
+            :on-exceed="exceed"
+            
+            >
+            <i class="el-icon-plus"></i>
+        </el-upload>
+        <el-dialog :visible.sync="dialogVisible">
+            <img width="100%" :src="dialogImageUrl" alt="">
+        </el-dialog>
+        <el-button @click="send()">上传商品图</el-button>
+        <h3>图片返回的路径为:{{product.url}}</h3>
+
+        <el-radio-group v-model="labelPosition" size="small">
+          </el-radio-group>
+          <div style="margin: 20px;"></div>
+          <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign"  label-position="top">
+            <el-form-item label="商品名称">
+              <el-input v-model="product.title"></el-input>
+            </el-form-item>
+            <el-form-item label="url" >
+              <el-input v-model="product.url" disabled="true"></el-input>
+            </el-form-item>
+            <el-form-item label="价格">
+              <el-input v-model="product.price"></el-input>
+            </el-form-item>
+            <el-form-item label="老价格">
+              <el-input v-model="product.old"></el-input>
+            </el-form-item>
+            <el-form-item label="销量">
+              <el-input v-model="product.sale"></el-input>
+            </el-form-item>
+            <el-form-item label="类别">
+              <el-input v-model="product.category"></el-input>
+            </el-form-item>
+            <el-button type="primary" @click="sub">提交</el-button>
+          </el-form>
+
+
+    </div>
+
+    <script>
+        let v = new Vue({
+            el:'#app',
+            data:{
+                dialogImageUrl: '',
+                dialogVisible: false,
+                labelPosition: 'right',
+                product:{
+                    title:'',
+                    price:'',
+                    old:'',
+                    url:'',
+                    sale:'',                    
+                    category:''
+                }
+            },
+            methods:{
+                //当点击删除时调用的方法
+                handleRemove(file, fileList) {
+                    axios.get('/remove?name='+file.response).then(res=>{
+                        
+                    })
+                    alert("删除成功")
+                    v.product.url=''
+                },
+                handlePictureCardPreview(file) {
+                this.dialogImageUrl = file.url;
+                this.dialogVisible = true;
+                },
+                uploadSuccess(response){
+                    v.product.url=response
+                },
+                exceed(){
+                    alert("只能上传一张图片")
+                },
+                send(){
+                    if(v.product.url!=''){
+                        axios.post('/product/send',v.product).then(res=>{
+                           
+                        })
+                    }
+                    else{
+                        alert("请上传图片")
+                    }
+                },
+
+                sub(){//提交商品数据
+                    axios.post('/product/sub',v.product).then(res=>{})     
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

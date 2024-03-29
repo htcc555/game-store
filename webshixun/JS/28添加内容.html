@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加内容</title>
+</head>
+<body>
+    <!-- 修改节点的内容除了常用的innerHTML和innerText之外,
+        还有insertAdjacentText和insertAdjacentHTML 可以在指定位置插入内容 
+    -->
+    <!-- object.insertAdjacentHTML(where,html) -->
+    <!-- object.insertAdjacentText(where,html) -->
+    <!-- 
+        beforeBegin:插入到开始标签的前面
+        beforeEnd:插入到结束标签的前面
+        afterBegin:插入到开始标签的后面
+        beforeEnd:插入到开始标签的后面
+
+
+
+
+
+     -->
+
+
+    <p class="p1">左手右手</p>
+
+    <script>
+        var p=document.querySelector(".p1")
+        p.insertAdjacentText("beforeEnd","一个慢动作")
+        console.log(p.innerText)
+    </script>
+</body>
+</html>

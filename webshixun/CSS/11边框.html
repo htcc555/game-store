@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>边框</title>
+    <style>
+        .d1{
+            width: 300px;
+            height: 300px;
+            /* 边框样式 */
+            /* border-style:solid; */
+            /* 边框宽度 */
+            /* border-width: 10px; */
+            /* 边框颜色 */
+            /* border-color: crimson; */
+            /* 符合写法 */
+            border: 1px solid yellowgreen;
+            /* border-top: 3px solid red; */
+            /* 针对某一边border-left/top/right/bottom: 4px solid blanchedalmond; */
+            /* 边框圆角:值最大为边框的半径长度,当设置一个值时,则作用于四角 */
+            border-radius:50px;
+            /* border-radius: 10px 50px ;  当设置两个值时: 左上右下 右上左下*/
+            /* border: radius 0px 10px 50px ;  当设置三个值时: 左上 右上左下 右下*/
+            /* 四个值 左上开始顺时针 */
+
+        
+        
+        
+        
+        }
+        input{
+            width: 400px;
+            height: 40px;
+            border-right: none;
+            border-radius: 10px 0 0 10px;
+            border: 3px solid gainsboro;
+        }
+        .d2{
+            text-align: center;
+        }
+        .b1{
+            height: 45px;
+            width: 100px;
+            border: none;
+            background-color: dodgerblue;
+            color: aliceblue;
+            border-radius: 0 10px 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+    <div class="d2"><input type="text"><button class="b1">百度一下</button></div>
+    
+    
+</body>
+</html>

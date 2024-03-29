@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>窗口事件</title>
+</head>
+<body>
+    <!-- 由窗口触发该事件 -->
+    <!-- 
+        onblur:当窗口失去焦点时运行脚本
+        onfocus:当窗口获得焦点时运行脚本
+        onload:当文档加载之后运行脚本
+        onresize:当调整窗口大小时运行脚本
+        onstorage: 当web Storage 区域更新时(存储空间中的数据发生变化时)运行脚本
+     -->
+
+     <script>
+        window.onblur=function()
+        {
+            console.log("窗口失去焦点时")
+        }
+        window.onfocus=function()
+        {
+            console.log("窗口获取焦点")
+        }
+        window.onload=function()
+        {
+            console.log("加载完成")
+        }
+     </script>
+    
+</body>
+</html>

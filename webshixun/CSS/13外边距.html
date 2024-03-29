@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外边距</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: red 1px solid;
+        }
+        .d1{
+            /* 设置单独某一边的外边距 */
+            /* margin-left/top/right/bottom */
+            margin-left: 100px;
+            margin-top: 50px;
+        }
+        .d2{
+            margin:20px;/*一个值,元素四边都会有20px的外边距*/    
+            margin:10px 50px; 
+            /* 两个值上下左右 */
+            /* 三个值时  上 左右 下 */
+            margin:0px 20px 50px 100px;/*四个值 上右下左*/
+            /* 当两个元素同时具有外边距时 左右距离相加 上下则取大的外边距 */
+           }
+        .d3{
+            text-align: center;
+            margin:0 auto;/*让块级元素自身居中*/
+        }
+        img{
+            width: 150px;
+            margin: 0 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+    <img src="../img/6.jpg" alt="">
+    <img src="../img/6.jpg" alt="">
+</body>
+</html>
